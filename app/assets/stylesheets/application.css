@@ -20,6 +20,14 @@ html, body{
     font-family: "Arial";
 }
 
+.indextable{
+    align: center;
+}
+
+table.indextable{
+    width: 20%;
+}
+
 /* header */
 
 .erstesblau{
@@ -56,6 +64,12 @@ html, body{
 ul#menu li {
     display:inline;
     padding: 0.5%;
+}
+
+.rcorners2 {
+    display: inline-block;
+    border-radius: 8px;
+    background-color: #cdd1d1;
 }
 
 /* collapsible list */
