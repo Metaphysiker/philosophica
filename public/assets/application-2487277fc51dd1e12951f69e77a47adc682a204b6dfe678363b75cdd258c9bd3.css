@@ -1,0 +1,71 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
+html, body{
+    margin:0;
+    padding:0;
+}
+
+/* header */
+
+.erstesblau{
+    text-align: left;
+    background-color: #119eff;
+    width: 100%;
+    color: #ffffff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* collapsible list */
+.collapsibleList{
+    margin: 0;
+    list-style-type: none;
+    padding-right: 5px;
+}
+
+.collapsibleList ul{
+    list-style-type: none;
+    text-align: left;
+    padding-left: 0px;
+    margin-left: -10px;
+}
+
+.collapsibleList li > input + * {
+    display: none;
+}
+
+.collapsibleList li > input:checked + * {
+    display: block;
+}
+
+.collapsibleList li > input {
+    display: none;
+}
+
+.collapsibleList label {
+    cursor: pointer;
+}
+
+@media (max-width: 499px) {
+
+}
+
+
+@media only screen and (min-width: 500px) {
+
+}
