@@ -48,6 +48,16 @@ table.indextable{
     padding-bottom: 5px;
 }
 
+.zweitesblau a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.zweitesblau a:hover{
+    color: #bdbdbd;
+    text-decoration: none;
+}
+
 .drittesblau{
     text-align: center;
     background-color: #bafcff;

@@ -14,7 +14,7 @@
         <input type="checkbox" id="mylist-node1" />
         <ul>
           <b>
-          <li>Startseite</li>
+          <li><%= link_to 'Startseite', root_path %></li>
           <li>Themen</li>
           <li>Blogs</li>
           <li>Events</li>
@@ -28,12 +28,14 @@
 
   <div class="media2">
     <ul id="menu">
-      <li><b>Startseite</b></li>
-      <li><b>Themen</b></li>
-      <li><b>Blog</b></li>
-      <li><b>Events</b></li>
-      <li><b>Ausbildung</b></li>
-      <li><b>Forschung</b></li>
+      <b>
+      <li><%= link_to 'Startseite', root_path %></li>
+      <li>Themen</li>
+      <li>Blog</li>
+      <li>Events</li>
+      <li>Ausbildung</li>
+      <li>Forschung</li>
+      </b>
     </ul>
   </div>
 </div>
