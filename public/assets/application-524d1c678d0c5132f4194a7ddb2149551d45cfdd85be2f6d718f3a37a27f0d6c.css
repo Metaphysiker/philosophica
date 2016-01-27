@@ -10,9 +10,10 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
  */
+
 
 html, body{
     margin:0;
@@ -50,7 +51,7 @@ table.indextable{
 
 .drittesblau{
     text-align: center;
-    background-color: #bafcff;
+    background-color: #72f2ff;
     width: 100%;
     color: #434343;
     padding-top: 1px;
@@ -66,59 +67,11 @@ ul#menu li {
     padding: 0.5%;
 }
 
-.rcornersevent {
-    display:inline-block;
-    background-color: #cdd1d1;
-    height: 100%;
-    width: 200px;
-    float: right;
-}
-
 .rcorners2 {
-    display:inline-block;
+    display: inline-block;
     border-radius: 8px;
     background-color: #cdd1d1;
     height: 100%;
-    width: 100%;
-    float: right;
-}
-
-.columnheader{
-    font-size: small;
-    text-align: center;
-    background-color: #bafcff;
-    width: 100%;
-    color: #434343;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.columnheadermess{
-    font-size: small;
-    text-align: center;
-    background-color: #bafcff;
-    width: 100%;
-    height: 50px;
-    color: #434343;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.columnheaderright{
-    font-size: small;
-    text-align: center;
-    background-color: #bafcff;
-    width: 100%;
-    height: 112px;
-    color: #434343;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 /* collapsible list */
