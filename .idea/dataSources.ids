@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Rails philosophica: development" uuid="a115f1da-e196-421b-bdc6-8e089ed1f6b7">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails philosophica: test" uuid="54596313-7e13-4823-8422-06fe83fcbdc9">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails philosophica: production" uuid="870ce961-0af1-426d-9e1f-76cef8abff60">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

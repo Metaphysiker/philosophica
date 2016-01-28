@@ -1,0 +1,176 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
+html, body{
+    margin:0;
+    padding:0;
+    font-family: "Arial";
+}
+
+.indextable{
+    align: center;
+}
+
+table.indextable{
+    width: 20%;
+}
+
+/* header */
+
+.erstesblau{
+    text-align: left;
+    background-color: #119eff;
+    width: 100%;
+    color: #ffffff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.zweitesblau{
+    text-align: center;
+    background-color: #1f4dff;
+    width: 100%;
+    color: #ffffff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.zweitesblau a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.zweitesblau a:hover{
+    color: #bdbdbd;
+    text-decoration: none;
+}
+
+.drittesblau{
+    text-align: center;
+    background-color: #bafcff;
+    width: 100%;
+    color: #434343;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+#menu{
+    margin: 0;
+}
+
+ul#menu li {
+    display:inline;
+    padding: 0.5%;
+}
+
+.rcornersevent {
+    display:inline-block;
+    background-color: #cdd1d1;
+    height: 100%;
+    width: 150px;
+    float: right;
+}
+
+.rcorners2 {
+    display:inline-block;
+    border-radius: 8px;
+    background-color: #cdd1d1;
+    height: 100%;
+    width: 100%;
+    float: right;
+}
+
+.columnheader{
+    font-size: small;
+    text-align: center;
+    background-color: #bafcff;
+    width: 100%;
+    color: #434343;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.columnheadermess{
+    font-size: small;
+    text-align: center;
+    background-color: #bafcff;
+    width: 100%;
+    height: 50px;
+    color: #434343;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.columnheaderright{
+    font-size: small;
+    text-align: center;
+    background-color: #bafcff;
+    width: 100%;
+    height: 112px;
+    color: #434343;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* collapsible list */
+.collapsibleList{
+    margin: 0;
+    list-style-type: none;
+    padding-right: 5px;
+}
+
+.collapsibleList ul{
+    list-style-type: none;
+    text-align: center;
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+.collapsibleList li > input + * {
+    display: none;
+}
+
+.collapsibleList li > input:checked + * {
+    display: block;
+}
+
+.collapsibleList li > input {
+    display: none;
+}
+
+.collapsibleList label {
+    cursor: pointer;
+}
+
+@media (max-width: 749px) {
+    .media2{
+        display: none;
+    }
+}
+
+
+@media only screen and (min-width: 750px) {
+    .media1{
+        display: none;
+    }
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails philosophica: development" uuid="a115f1da-e196-421b-bdc6-8e089ed1f6b7">
+      <first-sync>true</first-sync>
+      <user-name>sandroraess</user-name>
+      <user-password>dffddfc5dfd8dfd8dfc3dfc4dfcddfcfdfc4df9b</user-password>
+    </data-source>
+    <data-source name="Rails philosophica: test" uuid="54596313-7e13-4823-8422-06fe83fcbdc9">
+      <user-name>sandroraess</user-name>
+      <user-password>dffddfc5dfd8dfd8dfc3dfc4dfcddfcfdfc4df9b</user-password>
+    </data-source>
+    <data-source name="Rails philosophica: production" uuid="870ce961-0af1-426d-9e1f-76cef8abff60">
+      <user-name>philosophica</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddffadfe2dfe3dfe6dfe5dff9dfe5dffadfe2dfe3dfe9dfebdff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+    </data-source>
+  </component>
+</project>
