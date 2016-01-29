@@ -39,6 +39,16 @@ table.indextable{
     padding-bottom: 5px;
 }
 
+.erstesblau a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.erstesblau a:hover{
+    color: #bdbdbd;
+    text-decoration: none;
+}
+
 .zweitesblau{
     text-align: center;
     background-color: #1f4dff;
@@ -103,6 +113,17 @@ ul#menu li {
     padding-bottom: 1px;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.columnheader1{
+    font-size: small;
+    text-align: center;
+    background-color: #bafcff;
+    width: 100%;
+    color: #434343;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-top: 10px;
 }
 
 .columnheadermess{
