@@ -122,6 +122,14 @@ ul#menu li {
     float: right;
 }
 
+.userview {
+    display:inline-block;
+    border-radius: 8px;
+    background-color: #cdd1d1;
+    padding: 15px;
+    width: 50%;
+}
+
 .columnheader{
     font-size: small;
     text-align: center;
