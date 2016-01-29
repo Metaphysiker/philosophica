@@ -10,13 +10,15 @@
 
 <div class="container">
   <%= render 'layouts/header' %>
-  <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
-  <%= yield %>
+  <div style="text-align: center; margin-bottom: 20px;">
+    <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+    <%= yield %>
+  </div>
   <%= render 'layouts/footer' %>
 </div>
 
