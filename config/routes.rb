@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
+  get 'calendar/show'
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'static_pages#index'
+  root 'static_pages#index'
 
-  get '/:username' => 'users#show', as: 'profile'
+  get 'user/:username/' => 'users#show', as: 'profile'
 
   get 'static_pages/forschung', to: 'static_pages#forschung', as: 'forschung'
   get 'static_pages/ausbildung', to: 'static_pages#ausbildung', as: 'ausbildung'
@@ -14,6 +16,8 @@ Rails.application.routes.draw do
 
   # Events
   get 'events/index', to: 'events#index', as: 'events'
+
+  resource :calendar, only: [:show], controller: :calendar
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
