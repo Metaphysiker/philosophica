@@ -1,5 +1,7 @@
 <h1>Events vom <%= "#{@date.strftime("%B")} #{@date.year}" %></h1>
 
+<% actualmonth(@date) %>
+
 <table>
   <thead>
   <tr>
@@ -11,7 +13,7 @@
   </thead>
 
   <tbody>
-  <% @events.each do |event| %>
+  <% @eventsmonth.each do |event| %>
       <tr>
         <td><%= event.name %></td>
         <td><%= event.content %></td>
