@@ -129,6 +129,34 @@ ul#menu li {
     background-color: #cdd1d1;
     padding: 15px;
     width: 50%;
+    margin-bottom:10px;
+}
+
+.calendar{
+    display:inline-block;
+    border: 5px solid;
+    border-radius: 5px;
+    border-color: black;
+    padding: 0;
+    margin: 0;
+    border-collapse: collapse;
+    width: 80%;
+
+}
+
+.calendar td{
+    vertical-align: top;
+    width: 200px;
+    border: 2px solid;
+    margin: 40px;
+    border-color: black;
+    height: 100px;
+}
+
+.calendar tr{
+    border: 2px solid;
+    background-color: #d8d8d8;
+    min-height: 200px;
 }
 
 .columnheader{

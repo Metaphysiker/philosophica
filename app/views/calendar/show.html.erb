@@ -2,11 +2,11 @@
 
 <% actualmonth(@date) %>
 
-<table>
+<table style="margin-left:auto;margin-right:auto;">
   <thead>
   <tr>
     <th>Name</th>
-    <th>Description</th>
+    <th>Inhalt</th>
     <th>Datum</th>
     <th colspan="3"></th>
   </tr>
@@ -23,23 +23,14 @@
   </tbody>
 </table>
 
-
-
-<div class="row">
-  <div class="col-md-12 text-center">
-    <div class="well controls">
-      <%= link_to calendar_path(date: @date - 1.month), class: "btn btn-default" do %>
-          <i class="glyphicon glyphicon-backward"></i>
-      <% end %>
+    <div class="userview">
+      <%= link_to "Früher ", calendar_path(date: @date - 1.month) %>
       <%= "#{@date.strftime("%B")} #{@date.year}" %>
-      <%= link_to calendar_path(date: @date + 1.month), class: "btn btn-default" do %>
-          <i class="glyphicon glyphicon-forward"></i>
-      <% end %>
+      <%= link_to " Später ", calendar_path(date: @date + 1.month) %>
     </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
+<br>
+
+
     <%= calendar @date do |date| %>
         <%= date.day %>
         <% @events.each do |event| %>
@@ -49,6 +40,5 @@
             <% end %>
         <% end %>
     <% end %>
-  </div>
-</div>
+
 
