@@ -10,7 +10,13 @@
                 </div>
               </th>
               <th style="padding: 0;" >
-                <div class="rcornersevent">Event 1<br>Wer Was Wo<br>Event 2<br>Wer Was Wo<br>Event 3<br>Wer Was Wo<br>Event 4<br>Wer Was Wo<br>Event 5<br>Wer Was Wo<br></div>
+                <div class="rcornersevent">
+                  <% @comingevents.each do |event| %>
+                    <%= event.name %><br>
+                    <%= event.content %><br>
+                    <%= event.date %><br>
+                  <% end %>
+                </div>
               </th>
             </tr>
           </table>

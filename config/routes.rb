@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get 'static_pages/ausbildung', to: 'static_pages#ausbildung', as: 'ausbildung'
   get 'static_pages/themen', to: 'static_pages#themen', as: 'themen'
 
+  # Events
+  get 'events/index', to: 'events#index', as: 'events'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

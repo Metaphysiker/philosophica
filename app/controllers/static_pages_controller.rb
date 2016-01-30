@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def index
-
+    @comingevents = Event.all.limit(5)
   end
 
   def themen
