@@ -1,5 +1,13 @@
 <div class="erstesblau">
-  <div style="text-align: center;">Anmelden | RSS | Häufig gestellte Fragen<br>
+  <div style="text-align: center;"><% if user_signed_in? %>
+        Angemeldet als <strong><%= current_user.username %></strong> |
+        <%= link_to 'Mein Profil', profile_path(current_user.username), :class => 'navbar-link' %> |
+        <%= link_to 'Profil bearbeiten', edit_user_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+    <% else %>
+        <%= link_to "Account anlegen", new_user_registration_path, :class => 'navbar-link'  %> |
+        <%= link_to "Anmelden", new_user_session_path, :class => 'navbar-link'  %>
+    <% end %> | RSS | Häufig gestellte Fragen<br>
     Nutzervereinbarung | Datenschutz | Richtlinien für Kommentare | Über uns | Kontakt<br>
     Urheberrecht ©2015 Philosophie.ch. Alle Rechte vorbehalten.</div>
 </div>
