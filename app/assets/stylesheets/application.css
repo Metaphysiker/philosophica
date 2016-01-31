@@ -111,7 +111,7 @@ ul#menu li {
     height: 100%;
     width: 150px;
     float: right;
-    font-size: 70%;
+    font-size: 60%;
 }
 
 .rcorners2 {
@@ -129,6 +129,7 @@ ul#menu li {
     background-color: #cdd1d1;
     padding: 15px;
     width: 50%;
+    margin-top:10px;
     margin-bottom:10px;
 }
 
