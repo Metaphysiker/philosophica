@@ -15,9 +15,9 @@ Rails.application.routes.draw do
   get 'static_pages/themen', to: 'static_pages#themen', as: 'themen'
 
   # Events
-  get 'events/index', to: 'events#index', as: 'events'
 
   resource :calendar, only: [:show], controller: :calendar
+  resources :events
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -15,13 +15,15 @@
   <tbody>
   <% @eventsmonth.each do |event| %>
       <tr>
-        <td><%= event.name %></td>
+        <td><%= link_to event.name, event_path(event) %></td>
         <td><%= event.content %></td>
         <td><%= event.date %></td>
       </tr>
   <% end %>
   </tbody>
 </table>
+<br>
+<%= link_to "Event hinzufügen", new_event_path %><br>
 
     <div class="userview">
       <%= link_to "Früher ", calendar_path(date: @date - 1.month) %>
@@ -36,7 +38,7 @@
         <% @events.each do |event| %>
             <% if event.date == date %>
                 <br>
-                <%= event.name %>
+            <%= link_to event.name, event_path(event) %>
             <% end %>
         <% end %>
     <% end %>
