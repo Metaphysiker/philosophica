@@ -114,6 +114,10 @@ ul#menu li {
     font-size: 0.8em;
 }
 
+.offset {
+    background-color: #730E15;
+}
+
 .rcorners2 {
     display:inline-block;
     border-radius: 8px;

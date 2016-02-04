@@ -5,7 +5,8 @@ class StaticPagesController < ApplicationController
   end
 
   def themen
-
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+    @events = Event.all
   end
 
   def ausbildung
