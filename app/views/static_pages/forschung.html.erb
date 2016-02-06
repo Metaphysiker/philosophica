@@ -1,1 +1,19 @@
-Forschung
+Forschung<br>
+
+<table class="calendar">
+<% @weeks.each do |week| %>
+      <tr>
+  <% week.each do |date| %>
+              <% if date.month != Date.today.month %>
+                  <td style="background-color: green">
+                    <%= date.day %>
+                  </td>
+                  <% else %>
+                <td>
+    <%= date.day %>
+                </td>
+  <% end %>
+        <% end %>
+      </tr>
+<% end %>
+</table>
