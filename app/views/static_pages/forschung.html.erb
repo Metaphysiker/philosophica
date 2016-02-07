@@ -12,10 +12,22 @@ Forschung<br>
               <% if date.month != @date.month %>
                   <td style="background-color: green">
                     <%= date.day %>
+                    <% @events.each do |event| %>
+                        <% if event.date == date %>
+                            <br>
+                            <%= link_to event.name, event_path(event) %>
+                        <% end %>
+                    <% end %>
                   </td>
                   <% else %>
                 <td>
     <%= date.day %>
+                  <% @events.each do |event| %>
+                      <% if event.date == date%>
+                          <br>
+                          <%= link_to event.name, event_path(event) %>
+                      <% end %>
+                  <% end %>
                 </td>
   <% end %>
         <% end %>
