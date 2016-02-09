@@ -23,7 +23,7 @@
     });
 
     app.controller('TabController', function(){
-        this.tab = 1;
+        this.tab = 0;
 
         this.setTab = function(newValue){
             this.tab = newValue;
