@@ -14,3 +14,24 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+(function() {
+    var app = angular.module('gemStore', []);
+
+    app.controller('StoreController', function(){
+        this.products = gon.products;
+    });
+
+    app.controller('TabController', function(){
+        this.tab = 1;
+
+        this.setTab = function(newValue){
+            this.tab = newValue;
+        };
+
+        this.isSet = function(tabName){
+            return this.tab === tabName;
+        };
+    });
+
+})();

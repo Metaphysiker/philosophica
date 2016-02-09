@@ -1,1 +1,45 @@
-Ausbildung
+Ausbildung<br>
+
+<!DOCTYPE html>
+<html ng-app="gemStore">
+<head>
+  <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+  <script type="text/javascript" src="angular.min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+</head>
+<body class="container" ng-controller="StoreController as store">
+<div class="product row" ng-repeat="product in store.products">
+  <h3>
+    {{product.name}}
+    <section class="tab" ng-controller="TabController as tab">
+      <ul class="rcorners2">
+        <li ng-class="{ .offset: tab.isSet(1) }">
+          <a href ng-click="tab.setTab(1)">Test</a></li>
+        <li ng-class="{ active: tab.isSet(2) }">
+          <a href ng-click="tab.setTab(2)">Oops</a></li>
+        <li ng-class="{ active: tab.isSet(3) }">
+          <a href ng-click="tab.setTab(3)">AAAAH</a></li>
+      </ul>
+      <div ng-show="tab.isSet(1)">
+        <h4>Description</h4>
+        <blockquote>{{product.content}}</blockquote>
+      </div>
+      <div ng-show="tab.isSet(2)">
+        <h4>Specs</h4>
+        <blockquote>Shine:{{product.date}} </blockquote>
+      </div>
+      <div ng-show="tab.isSet(3)">
+        <h4>Reviews</h4>
+        <blockquote></blockquote>
+      </div>
+    </section>
+  </h3>
+</div>
+
+
+
+</body>
+</html>

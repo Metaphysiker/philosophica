@@ -10,7 +10,7 @@ class StaticPagesController < ApplicationController
   end
 
   def ausbildung
-
+    gon.products = Event.all.limit(5)
   end
 
   def forschung
