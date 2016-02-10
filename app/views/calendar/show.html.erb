@@ -23,8 +23,11 @@
   <% @eventsmonth.each do |event| %>
       <tr>
         <td><%= link_to event.name, event_path(event) %></td>
-        <td><%= event.content %></td>
-        <td><%= event.date %></td>
+        <td>  <div class="clickme">
+          Click here
+
+          <div class="book" style="display:none;"> <%= event.content %> </div></td>
+        <td><%= event.date %></div></td>
       </tr>
   <% end %>
   </tbody>
@@ -51,3 +54,24 @@
     <% end %>
 
 
+<script>
+  $(document).ready(function(){
+    $("div").click(function(){
+
+      if($(this).position().left > 55) {
+        $(this).animate({left: '0px'});
+      }
+      else {
+        $(this).animate({left: '250px'});
+      }
+    });
+
+    $( ".clickme" ).click(function() {
+      $(this).children(".book").toggle( "slow", function() {
+        // Animation complete.$( "div" ).children( ".selected" ).css( "color", "blue" );
+      });
+    });
+
+
+  });
+</script>
