@@ -23,9 +23,8 @@
   <% @eventsmonth.each do |event| %>
       <tr>
         <td><%= link_to event.name, event_path(event) %></td>
-        <td>  <div class="clickme">
+        <td><div class="clickme">
           Click here
-
           <div class="book" style="display:none;"> <%= event.content %> </div></td>
         <td><%= event.date %></div></td>
       </tr>
