@@ -16,7 +16,7 @@ Ausbildung<br>
     {{product.name}}
     <section class="tab" ng-controller="TabController as tab">
       <ul class="rcorners2">
-        <li ng-class="{ .offset: tab.isSet(1) }">
+        <li ng-class="{ offset: tab.isSet(1) }">
           <a href ng-click="tab.setTab(1)">Test</a></li>
         <li ng-class="{ active: tab.isSet(2) }">
           <a href ng-click="tab.setTab(2)">Oops</a></li>
@@ -31,10 +31,12 @@ Ausbildung<br>
       <div ng-show="tab.isSet(2)">
         <h4>Specs</h4>
         <blockquote>Shine:{{product.date}} </blockquote>
+        <a href ng-click="tab.setTab(0)">Back</a>
       </div>
       <div ng-show="tab.isSet(3)">
         <h4>Reviews</h4>
         <blockquote></blockquote>
+        <a href ng-click="tab.setTab(0)">Back</a>
       </div>
     </section>
   </h3>
