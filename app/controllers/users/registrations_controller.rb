@@ -9,14 +9,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
    def create
-     @username = params[:username]
-     @usernames = User.all
-     @usernames.each do |f|
-       if f.username == @username
-         redirect_to root_path
-       end
+     @username = sign_up_params[:username]
+     if usernameexists(@username)
+     redirect_to root_path
+     else
+      super
      end
-     super
    end
 
   # GET /resource/edit
@@ -42,6 +40,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
+
+  private
+
+  def usernameexists(usernamex)
+    @users = User.all
+    @users.each do |user|
+      if user.username == usernamex
+        return true
+      end
+      end
+      else
+        return false
+      end
 
   # protected
 
