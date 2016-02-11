@@ -11,7 +11,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
    def create
      @username = sign_up_params[:username]
      if usernameexists(@username)
-     redirect_to root_path
+       flash[:success] = "Name existiert schon"
+       redirect_to events_path
      else
       super
      end
