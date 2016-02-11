@@ -9,7 +9,9 @@
 
     <div class="field">
       <%= f.label :content %><br />
-      <%= f.text_area :content %>
+      <div class="clickme">
+        Click here</div>
+        <div class="book" style="display:none;"> <%= f.text_area :content %> <div class="collapse"> Collapse</div></div>
     </div>
 
     <div class="field">
@@ -21,3 +23,30 @@
       <%= f.submit "Event eintragen" %>
     </div>
 <% end %>
+
+<script>
+  $(document).ready(function(){
+    $("div").click(function(){
+
+      if($(this).position().left > 55) {
+        $(this).animate({left: '0px'});
+      }
+      else {
+        $(this).animate({left: '250px'});
+      }
+    });
+
+    $( ".clickme" ).click(function() {
+      $(".book").show( "slow", function() {
+        // Animation complete.$( "div" ).children( ".selected" ).css( "color", "blue" );
+      });
+    });
+
+    $( ".collapse" ).click(function() {
+      $(".book").hide( "slow", function() {
+        // Animation complete.$( "div" ).children( ".selected" ).css( "color", "blue" );
+      });
+    });
+
+  });
+</script>
