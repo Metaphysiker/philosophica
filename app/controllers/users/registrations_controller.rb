@@ -4,7 +4,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 #   GET /resource/sign_up
    def new
-     @user = User.all
+     @users = User.all
      super
    end
 
