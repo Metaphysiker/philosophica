@@ -3,15 +3,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
 # before_filter :configure_account_update_params, only: [:update]
 
 #   GET /resource/sign_up
-   def new
-     @users = User.all
-     super
-   end
-
-  # POST /resource
-  # def create
+  # def new
   #   super
   # end
+
+  # POST /resource
+   def create
+     @username = params[:username]
+     @usernames = User.all
+     @usernames.each do |f|
+       if f.username == @username
+         redirect_to root_path
+       end
+     end
+     super
+   end
 
   # GET /resource/edit
   # def edit
