@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resource :calendar, only: [:show], controller: :calendar
   resources :events
   resources :blogs
+  resources :infos
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
