@@ -1,0 +1,100 @@
+Event-Kalender<br>
+<% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+
+<h1>Events vom <%= "#{@date.strftime("%B")} #{@date.year}" %></h1>
+
+<% actualmonth(@date) %>
+
+<table style="margin-left:auto;margin-right:auto;">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Inhalt</th>
+    <th>Datum</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @eventsmonth.each do |event| %>
+      <tr>
+        <td><%= link_to event.name, event_path(event) %></td>
+        <td><div class="clickme">
+          Click here
+          <div class="book" style="display:none;"> <%= event.content %> </div>
+        <td><%= event.date %></div></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to "Event hinzufügen", new_event_path %><br><br>
+<div class="userview">
+  <%= link_to "Früher ", kalender_path(date: @date - 1.month) %>
+  <%= "#{@date.strftime("%B")} #{@date.year}" %>
+  <%= link_to " Später ", kalender_path(date: @date + 1.month) %>
+</div>
+
+<table class="calendar">
+  <tr>
+    <th>Monday</th>
+    <th>Tuesday</th><th>Wednesday</th>
+    <th>Thursday</th><th>Friday</th>
+    <th>Saturday</th><th>Sunday</th>
+  </tr>
+<% @weeks.each do |week| %>
+      <tr>
+  <% week.each do |date| %>
+              <% if date.month != @date.month %>
+                  <td style="background-color: green">
+                    <%= date.day %>
+                    <% @events.each do |event| %>
+                        <% if event.date == date %>
+                            <br>
+                            <%= link_to event.name, event_path(event) %>
+                        <% end %>
+                    <% end %>
+                  </td>
+                  <% else %>
+                <td>
+    <%= date.day %>
+                  <% @events.each do |event| %>
+                      <% if event.date == date%>
+                          <br>
+                          <%= link_to event.name, event_path(event) %>
+                      <% end %>
+                  <% end %>
+                </td>
+  <% end %>
+        <% end %>
+      </tr>
+<% end %>
+</table>
+
+
+<script>
+  $(document).ready(function(){
+    $("div").click(function(){
+
+      if($(this).position().left > 55) {
+        $(this).animate({left: '0px'});
+      }
+      else {
+        $(this).animate({left: '250px'});
+      }
+    });
+
+    $( ".clickme" ).click(function() {
+      $(this).children(".book").toggle( "slow", function() {
+        // Animation complete.$( "div" ).children( ".selected" ).css( "color", "blue" );
+      });
+    });
+
+
+  });
+</script>
