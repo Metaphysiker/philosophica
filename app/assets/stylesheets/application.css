@@ -250,6 +250,10 @@ ul#menu li {
     .media2{
         display: none;
     }
+
+    .calendar{
+        font-size: 8px;
+    }
 }
 
 

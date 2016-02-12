@@ -5,5 +5,6 @@
 <%= @event.name %><br>
 <%= @event.content %><br>
 <%= @event.date %><br>
+Erstellt von <%= link_to @user.username, profile_path(@user.username) %><br>
 <%= link_to "Event bearbeiten", edit_event_path(@event) %> | <%= link_to "Event löschen", event_path(@event), method: :delete, data: { confirm: "Sind sie sicher?" }%><br>
 <%= link_to "Zurück", kalender_path(date: @event.date) %>
