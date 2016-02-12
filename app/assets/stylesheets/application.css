@@ -147,16 +147,17 @@ ul#menu li {
     border-collapse: collapse;
     font-size: 1em;
     table-layout: fixed;
+    width: 80%;
 }
 
 .calendar td{
     vertical-align: top;
-    width: 100px;
     border: 2px solid;
     margin: 40px;
     border-color: black;
     height: 100px;
     font-size: 1em;
+    width: 11%;
 }
 
 .calendar tr{
