@@ -55,10 +55,10 @@ end
 
 private
 
-def blog_params
-  params.require(:blog).permit(:name, :description)
+def info_params
+  params.require(:info).permit(:name, :content, :kind)
 end
 
-def blog_event
-  @blog = Blog.find(params[:id])
+def find_info
+  @info = Info.find(params[:id])
 end

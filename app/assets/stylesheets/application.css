@@ -200,6 +200,11 @@ ul#menu li {
     padding-bottom: 1px;
     margin-top: 10px;
     margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.columnheadermess a{
+    text-decoration: none;
 }
 
 .columnheaderright{

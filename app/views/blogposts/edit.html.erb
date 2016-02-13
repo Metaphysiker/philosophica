@@ -1,0 +1,13 @@
+<h2>Blogeintrag bearbeiten</h2>
+
+<%= form_for([@blog, @blogpost.build]) do |f| %>
+
+    <div class="field">
+      <%= f.label :content %><br />
+      <%= f.text_area :content %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Blogeintrag ändern" %>
+    </div>
+<% end %>

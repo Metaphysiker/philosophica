@@ -2,6 +2,8 @@ class StaticPagesController < ApplicationController
   def index
    # @comingevents = Event.all.limit(5)
     @comingevents = Event.where('date > ?', DateTime.now).limit(5).order(:date)
+    @forschungs = Info.where(kind: '1').limit(4).order(:created_at).reverse_order
+    @neugierigs = Info.where(kind: '2').limit(4).order(:created_at).reverse_order
   end
 
   def themen

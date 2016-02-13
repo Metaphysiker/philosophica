@@ -1,5 +1,5 @@
 <% @blogs.each do |blog| %>
-  <%= link_to blog.name, philblog_path(blog.name) %> Erstellt von: <%= link_to getname(blog.user_id),profile_path(getname(blog.user_id) ) %><br>
+  <%= link_to blog.name, philblog_path(blog.url) %> Erstellt von: <%= link_to getname(blog.user_id),profile_path(getname(blog.user_id) ) %><br>
   <%= blog.description %><br> <br>
 <% end %><br><br>
 

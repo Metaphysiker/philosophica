@@ -2,7 +2,7 @@ class BlogsController < ApplicationController
   before_action :find_blog, only: [:edit, :update, :destroy]
 
   def show
-    @blog = Blog.find_by_name(params[:name])
+    @blog = Blog.find_by_url(params[:url])
   end
 
   def edit
@@ -11,7 +11,7 @@ class BlogsController < ApplicationController
 
   def update
     if @blog.update(blog_params)
-      redirect_to blog_path(@blog)
+      redirect_to philblog_path(@blog.url)
     else
       render 'edit'
     end
@@ -33,9 +33,10 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
     @blog.user_id = current_user.id
+    @blog.url = @blog.name.downcase.tr(" ", "_")
     if @blog.save
       flash[:success] = "Blog wurde erstellt!"
-      redirect_to blog_path(@blog)
+      redirect_to philblog_path(@blog.url)
     else
       render 'new'
     end

@@ -12,9 +12,11 @@
               <th style="padding: 0;" >
                 <div class="rcornersevent">
                   <% @comingevents.each do |event| %>
+                      <%= link_to event_path(event) do %>
                     <%= event.name %><br>
                     <%= event.content %><br>
                     <%= event.date %><br>
+                          <% end %>
                       <br>
                   <% end %>
                 </div>
@@ -24,39 +26,39 @@
         </th>
       </tr>
       <tr>
-        <td style="padding-right:25px;vertical-align:top; width: 33%;">
+        <td style="margin-right:5%;vertical-align:top; width: 30%;">
           <div class="columnheader1">Philosophische Forschung</div>
           <%= image_tag("1.png", width:"100%") %>
         </td>
-        <td style="padding-right:25px; vertical-align:top; width: 33%;">
+        <td style="margin-right:5%; vertical-align:top; width: 30%;">
           <div class="columnheader1">Philosophisches Interesse</div>
           <%= image_tag("2.png", width:"100%") %>
         </td>
-        <td style="vertical-align:top; width: 33%;">
+        <td style="vertical-align:top; width: 30%;">
           <div class="columnheader1">Philosophischer Input</div>
           <%= image_tag("3.jpg", width:"100%") %>
         </td>
       </tr>
       <tr>
-        <td style="padding-right:25px;vertical-align:top;">
-          <div class="columnheadermess">Kurzmeldung Philosophische Forschung
-            (Alumni / Jobs/ Publikationen/ CFP)</div>
-          <div class="columnheadermess">Kurzmeldung Philosophische Forschung
-            (Alumni / Jobs/ Publikationen/ CFP)</div>
-          <div class="columnheadermess">Kurzmeldung Philosophische Forschung
-            (Alumni / Jobs/ Publikationen/ CFP)</div>
-          <div class="columnheadermess">Kurzmeldung Philosophische Forschung
-            (Alumni / Jobs/ Publikationen/ CFP)</div>
+        <td style="vertical-align:top;">
+          <% @forschungs.each do |f| %>
+              <%= link_to info_path(f), class: "columnheadermess" do %>
+          <div class="columnheadermess">
+            <%= f.name %><br>
+            <%= truncate(f.content, length: 60) %>
+          </div>
+              <% end %>
+              <% end %>
         </td>
-        <td style="padding-right:25px; vertical-align:top;">
-          <div class="columnheadermess">Kurzmeldung Philosophisches Interesse
-            (Veröffentlichung, Blogs, Medienartikel)</div>
-          <div class="columnheadermess">Kurzmeldung Philosophisches Interesse
-            (Veröffentlichung, Blogs, Medienartikel)</div>
-          <div class="columnheadermess">Kurzmeldung Philosophisches Interesse
-            (Veröffentlichung, Blogs, Medienartikel)</div>
-          <div class="columnheadermess">Kurzmeldung Philosophisches Interesse
-            (Veröffentlichung, Blogs, Medienartikel)</div>
+        <td style=" vertical-align:top;">
+          <% @neugierigs.each do |f| %>
+              <%= link_to info_path(f), class: "columnheadermess" do %>
+                  <div class="columnheadermess">
+                    <%= f.name %><br>
+                    <%= truncate(f.content, length: 60) %>
+                  </div>
+              <% end %>
+          <% end %>
         </td>
         <td style="vertical-align:top;">
           <div class="columnheaderright">Partner</div>
