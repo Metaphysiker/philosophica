@@ -18,6 +18,7 @@ class EventsController < ApplicationController
   end
 
   def create
+    params[:event][:tag_list] = params[:event][:tag_list].join(',')
     @event = Event.new(event_params)
     @event.user_id = current_user.id
     if @event.save
@@ -44,7 +45,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :content, :date)
+    params.require(:event).permit(:name, :content, :date, :tag_list)
   end
 
   def find_event

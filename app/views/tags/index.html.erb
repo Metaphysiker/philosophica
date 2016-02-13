@@ -1,0 +1,4 @@
+Alle Tags<br> <br>
+<% @tags.each do |tag| %>
+  <%= link_to tag.name + " ", tag_path(tag) %><br>
+<% end %>

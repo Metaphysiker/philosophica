@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get 'static_pages/ausbildung', to: 'static_pages#ausbildung', as: 'ausbildung'
   get 'static_pages/themen', to: 'static_pages#themen', as: 'themen'
 
+  resources :tags, only: [:index, :show]
+
   # Events
 
   resource :calendar, only: [:show], controller: :calendar

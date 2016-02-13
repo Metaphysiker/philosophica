@@ -1,52 +1,9 @@
 <h2>Neuer Event</h2>
 
-<%= form_for(@event) do |f| %>
-
-    <div class="field">
-      <%= f.label :name %><br />
-      <%= f.text_field :name, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label :content %><br />
-      <div class="clickme">
-        Click here</div>
-        <div class="book" style="display:none;"> <%= f.text_area :content %> <div class="collapse"> Collapse</div></div>
-    </div>
-
-    <div class="field">
-      <%= f.label :date %><br />
-      <%= f.date_select :date %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "Event eintragen" %>
-    </div>
+<%= simple_form_for(@event) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :content %>
+    <%= f.input :date%>
+    <%= f.input :tag_list, as: :check_boxes, collection: ['Logik', 'Ethik', 'Metaphysik'] %><br>
+    <%= f.button :submit %>
 <% end %>
-
-<script>
-  $(document).ready(function(){
-    $("div").click(function(){
-
-      if($(this).position().left > 55) {
-        $(this).animate({left: '0px'});
-      }
-      else {
-        $(this).animate({left: '250px'});
-      }
-    });
-
-    $( ".clickme" ).click(function() {
-      $(".book").show( "slow", function() {
-        // Animation complete.$( "div" ).children( ".selected" ).css( "color", "blue" );
-      });
-    });
-
-    $( ".collapse" ).click(function() {
-      $(".book").hide( "slow", function() {
-        // Animation complete.$( "div" ).children( ".selected" ).css( "color", "blue" );
-      });
-    });
-
-  });
-</script>

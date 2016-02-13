@@ -56,7 +56,7 @@ end
 private
 
 def info_params
-  params.require(:info).permit(:name, :content, :kind)
+  params.require(:info).permit(:name, :content, :kind, :tag_list)
 end
 
 def find_info
