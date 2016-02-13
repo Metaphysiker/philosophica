@@ -11,10 +11,6 @@
       <%= f.label :description %><br />
       <%= f.text_area :description %>
     </div>
-    <div class="field">
-      Tags<br>
-      <%= f.input :tag_list, as: :check_boxes, collection: ['Logik', 'Ethik', 'Metaphysik'] %>
-    </div>
     <div class="actions">
       <%= f.submit "Blog erstellen" %>
     </div>
