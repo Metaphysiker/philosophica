@@ -11,9 +11,14 @@
       <%= tag %>
   <% end %>
   <br><br>
+  Meine Informationen: <br>
   <% @infosall.each do |info| %>
-      <%= info.name %><br>
-  <% end %><br>
+      <%= link_to info.name, info_path(info) %><br>
+  <% end %><br><br>
+  Meine Events: <br>
+  <% @eventsall.each do |event| %>
+      <%= link_to event.name, event_path(event) %><br>
+  <% end %><br><br>
   <% if (!current_user.id.nil?) && (@user.id == current_user.id) %>
       <%= link_to 'Profil bearbeiten', edit_user_registration_path %>
   <% end %>
