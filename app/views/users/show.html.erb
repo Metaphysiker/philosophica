@@ -6,6 +6,11 @@
     <%= @user.aboutme %>
   <% end %>
   <br>
+  Meine gewünschten Neuigkeiten mit den Tags:
+  <% @tags.each do |tag| %>
+      <%= tag %>
+  <% end %>
+  <br><br>
   <% @infosall.each do |info| %>
       <%= info.name %><br>
   <% end %><br>

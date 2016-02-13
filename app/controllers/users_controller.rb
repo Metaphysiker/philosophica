@@ -3,8 +3,13 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by_username(params[:username])
     @tags = @user.tag_list
+    @infosall = Array.new
+    @tags.each do |tag|
+      @infosall = @infosall + Info.tagged_with(tag)
+    end
 
-    @infosall = Info.tagged_with(@tags).uniq!
+    @infosall.uniq!
+    @infosall.sort! { |a,b| b.created_at <=> a.created_at }
   end
 
 end
