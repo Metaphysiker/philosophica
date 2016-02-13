@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root 'static_pages#index'
 
   get 'user/:username/' => 'users#show', as: 'profile'
+  get 'blog/:name/' => 'blogs#show', as: 'philblog'
 
   get 'static_pages/kalender', to: 'static_pages#kalender', as: 'kalender'
   get 'static_pages/forschung', to: 'static_pages#forschung', as: 'forschung'

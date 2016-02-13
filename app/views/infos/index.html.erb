@@ -1,7 +1,7 @@
 Alle Infos<br><br>
 
 <% @infos.each do |info| %>
-  <%= info.name %><br>
+  <%= link_to info.name, info_path(info) %><br>
   <%= info.content %><br>
   <%= info.kind %><br>
   <%= info.user_id %><br><br>

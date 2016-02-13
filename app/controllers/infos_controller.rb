@@ -9,18 +9,18 @@ before_action :find_info, only: [:show, :edit, :update, :destroy]
 
   end
 
-def update
-  if @info.update(info_params)
-    redirect_to info_path(@info)
-  else
-    render 'edit'
+  def update
+    if @info.update(info_params)
+      redirect_to info_path(@info)
+    else
+      render 'edit'
+    end
   end
-end
 
-def destroy
-  @info.destroy
-  redirect_to root_path
-end
+  def destroy
+    @info.destroy
+    redirect_to root_path
+  end
 
   def index
     @infos = Info.all
@@ -55,10 +55,10 @@ end
 
 private
 
-def find_info
-  @info = Info.find(params[:id])
+def blog_params
+  params.require(:blog).permit(:name, :description)
 end
 
-def info_params
-  params.require(:info).permit(:name, :content, :kind)
+def blog_event
+  @blog = Blog.find(params[:id])
 end
