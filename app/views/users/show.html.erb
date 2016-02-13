@@ -6,6 +6,9 @@
     <%= @user.aboutme %>
   <% end %>
   <br>
+  <% @infosall.each do |info| %>
+      <%= info.name %><br>
+  <% end %><br>
   <% if (!current_user.id.nil?) && (@user.id == current_user.id) %>
       <%= link_to 'Profil bearbeiten', edit_user_registration_path %>
   <% end %>

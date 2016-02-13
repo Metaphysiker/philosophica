@@ -9,6 +9,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
    def create
+     params[:user][:tag_list] = params[:user][:tag_list].join(',')
      @username = sign_up_params[:username]
      if usernameexists(@username)
        redirect_to root_path
