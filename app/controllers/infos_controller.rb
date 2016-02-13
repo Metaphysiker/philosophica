@@ -31,6 +31,7 @@ before_action :find_info, only: [:show, :edit, :update, :destroy]
   end
 
   def create
+    params[:info][:tag_list] = params[:info][:tag_list].join(',')
     @info = Info.new(info_params)
     @info.user_id = current_user.id
     if @info.save
