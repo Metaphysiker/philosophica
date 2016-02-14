@@ -2,10 +2,10 @@
 
 Kommende Events: <br>
 <% @events.each do |event| %>
-  <%= event.name %><br>
+  <%= link_to event.name, event_path(event) %><br>
 <% end %><br>
 
 Informationen:<br>
-<% @infos.each do |event| %>
-    <%= event.name %><br>
+<% @infos.each do |info| %>
+    <%= link_to info.name, info_path(info) %><br>
 <% end %>
