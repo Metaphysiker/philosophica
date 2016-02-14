@@ -22,11 +22,10 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user_id = current_user.id
     if @event.save
-      flash[:success] = "Der Event wurde erstellt!"
-      redirect_to event_path(@event)
       @user = current_user
       ExampleMailer.sample_email(@user).deliver
-
+      flash[:success] = "Der Event wurde erstellt!"
+      redirect_to root_path # event_path(@event)
     else
       render 'new'
     end
