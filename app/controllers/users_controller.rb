@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     end
 
     @eventsall.uniq!
-    @eventsall.sort! { |a,b| b.date <=> a.date }
+    @eventsall.sort! { |a,b| a.date <=> b.date }
   end
 
 

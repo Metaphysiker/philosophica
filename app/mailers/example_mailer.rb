@@ -18,7 +18,7 @@ class ExampleMailer < ApplicationMailer
     end
 
     @eventsall.uniq!
-    @eventsall.sort! { |a,b| b.date <=> a.date }
+    @eventsall.sort! { |a,b| a.date <=> b.date }
 
     mail(to: @user.email, subject: 'Sample Email')
 

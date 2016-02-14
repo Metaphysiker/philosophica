@@ -6,19 +6,21 @@
 <body>
 <h1>Hi <%= @user.username %></h1>
 <p>
- Sie haben folgende Tags ausgewählt:
+ Sie haben folgende Tags ausgewählt: <br>
   <% @user.tag_list.each do |tag| %>
     <%= tag %> <br>
   <% end %>
 
   <br><br>
+  Meine Informationen: <br>
   <% @infosall.each do |info| %>
-      <%= info.name %><br>
+      <%= info.name %>, Tags: <%=info.tag_list %><br>
   <% end %><br>
 
   <br><br>
+  Kommende Events der nächsten Woche:
   <% @eventsall.each do |info| %>
-      <%= info.name %><br>
+      <%= info.name %>, Datum: <%= info.date %>, Tags: <%= info.tag_list %><br>
   <% end %><br>
 </p>
 </body>

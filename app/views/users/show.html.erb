@@ -13,11 +13,11 @@
   <br><br>
   Meine Informationen: <br>
   <% @infosall.each do |info| %>
-      <%= link_to info.name, info_path(info) %><br>
+      <%= link_to info.name, info_path(info) %>, Tags: <%=info.tag_list %><br>
   <% end %><br><br>
   Meine Events: <br>
   <% @eventsall.each do |event| %>
-      <%= link_to event.name, event_path(event) %><br>
+      <%= link_to event.name, event_path(event) %>, Datum: <%= event.date %>, Tags: <%= event.tag_list %><br>
   <% end %><br><br>
   <% if (!current_user.id.nil?) && (@user.id == current_user.id) %>
       <%= link_to 'Profil bearbeiten', edit_user_registration_path %>
