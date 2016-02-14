@@ -18,7 +18,7 @@ class ExampleMailer < ApplicationMailer
                       :to      => @user.email,
                       :subject => 'Sample Mail using Mailgun API',
                       :text    => 'This mail is sent using Mailgun API via mailgun-ruby'}
-    mg_client.send_message ENV['philosophica.ch'], message_params
+    mg_client.send_message ENV['sandboxa6a6272d42e5487f85b6059b25fac83e.mailgun.org'], message_params
 
   end
 end
