@@ -24,6 +24,6 @@ class StaticPagesController < ApplicationController
     @first_calendar_day = @date.beginning_of_month.beginning_of_week(:monday)
     @last_calendar_day = @date.end_of_month.end_of_week(:monday)
     @weeks = (@first_calendar_day..@last_calendar_day).to_a.in_groups_of(7)
-    @eventsmonth = Event.where('extract(month from date) = ?', @date.month).order(:date)
+    @eventics = Event.where('extract(month from date) = ?', @date.month).order(:date)
   end
 end

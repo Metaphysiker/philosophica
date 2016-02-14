@@ -21,7 +21,7 @@ Event-Kalender<br>
   </thead>
 
   <tbody>
-  <% @eventsmonth.each do |event| %>
+  <% @eventics.each do |event| %>
       <tr>
         <td><%= link_to event.name, event_path(event) %></td>
         <td><div class="clickme">

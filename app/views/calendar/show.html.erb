@@ -7,8 +7,6 @@
 
 <h1>Events vom <%= "#{@date.strftime("%B")} #{@date.year}" %></h1>
 
-<% actualmonth(@date) %>
-
 <table style="margin-left:auto;margin-right:auto;">
   <thead>
   <tr>
@@ -20,7 +18,7 @@
   </thead>
 
   <tbody>
-  <% @eventsmonth.each do |event| %>
+  <% @eventics.each do |event| %>
       <tr>
         <td><%= link_to event.name, event_path(event) %></td>
         <td><div class="clickme">
