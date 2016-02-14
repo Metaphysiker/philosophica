@@ -1,5 +1,5 @@
 class ExampleMailer < ApplicationMailer
-  default from: "sandro.raess@philosophie.ch"
+  default from: "philotester5@gmail.com"
 
   def sample_email(user)
     @user = user
