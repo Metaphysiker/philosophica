@@ -3,9 +3,13 @@ source 'https://rubygems.org'
 ruby File.read('.ruby-version').strip
 
 gem 'devise'
+gem 'figaro'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use postgresql as the database for Active Record
+gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
+gem 'delayed_job_active_record'
+
 
 group :development do
   gem 'pg', '~> 0.15'

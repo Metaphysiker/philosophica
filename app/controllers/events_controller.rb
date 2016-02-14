@@ -24,6 +24,9 @@ class EventsController < ApplicationController
     if @event.save
       flash[:success] = "Der Event wurde erstellt!"
       redirect_to event_path(@event)
+      ExampleMailer.sample_email(current_user).deliver
+      SendEmailJob.set(wait: 20.seconds).perform_later(@user)
+
     else
       render 'new'
     end
