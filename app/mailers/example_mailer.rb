@@ -12,14 +12,13 @@ class ExampleMailer < ApplicationMailer
     @infosall.uniq!
     @infosall.sort! { |a,b| b.created_at <=> a.created_at }
 
-    mail(to: @user.email, subject: 'Sample Email')
-
-    mg_client = Mailgun::Client.new ENV['key-00189745ce652e42d6f1ee591b9f4f6a']
-    message_params = {:from    => ENV['philotester5@gmail.com'],
+    mg_client = Mailgun::Client.new ENV['api_key']
+    message_params = {:from    => ENV['gmail_username'],
                       :to      => @user.email,
                       :subject => 'Sample Mail using Mailgun API',
                       :text    => 'This mail is sent using Mailgun API via mailgun-ruby'}
-                      mg_client.send_message ENV['gmail.com'], message_params
+    mg_client.send_message ENV['domain'], message_params
+
   end
 end
 
