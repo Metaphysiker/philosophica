@@ -19,7 +19,7 @@ class ExampleMailer < ApplicationMailer
                       :to      => @user.email,
                       :subject => 'Sample Mail using Mailgun API',
                       :text    => 'This mail is sent using Mailgun API via mailgun-ruby'}
-
+                      mg_client.send_message ENV['gmail.com'], message_params
   end
 end
 
