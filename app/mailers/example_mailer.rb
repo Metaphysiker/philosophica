@@ -12,6 +12,14 @@ class ExampleMailer < ApplicationMailer
     @infosall.uniq!
     @infosall.sort! { |a,b| b.created_at <=> a.created_at }
 
+    @eventsall = Array.new
+    @tags.each do |tag|
+      @eventsall = @eventsall + Event.where(date: Date.current..(Date.current + 7.days)).tagged_with(tag)
+    end
+
+    @eventsall.uniq!
+    @eventsall.sort! { |a,b| b.date <=> a.date }
+
     mail(to: @user.email, subject: 'Sample Email')
 
   end
