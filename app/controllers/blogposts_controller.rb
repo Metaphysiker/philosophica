@@ -39,7 +39,7 @@ class BlogpostsController < ApplicationController
   end
 end
 
-private
+#private
 
 def blogpost_params
   params.require(:blogpost).permit(:content)

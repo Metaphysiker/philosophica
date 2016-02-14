@@ -55,5 +55,5 @@ end
   end
 
   def find_blog
-    @blog = Blog.find(params[:id])
+    @blog = Blog.find(params[:blog_id])
   end
