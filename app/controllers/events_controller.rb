@@ -24,7 +24,8 @@ class EventsController < ApplicationController
     if @event.save
       flash[:success] = "Der Event wurde erstellt!"
       redirect_to event_path(@event)
-      ExampleMailer.sample_email(current_user).deliver
+      @user = current_user
+      ExampleMailer.sample_email(@user).deliver
 
     else
       render 'new'
