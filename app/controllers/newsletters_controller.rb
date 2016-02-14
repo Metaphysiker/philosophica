@@ -10,8 +10,10 @@ class NewslettersController < ApplicationController
   def create
     @newsletter = Newsletter.new(newsletter_params)
     if @newsletter.save
-       @user = User.find(current_user.id)
-      ExampleMailer.sample_email(@user).deliver
+      @user = User.all
+      @user.each do |user|
+        ExampleMailer.sample_email(user).deliver
+      end
       redirect_to newsletters_path
     else
       render 'new'
