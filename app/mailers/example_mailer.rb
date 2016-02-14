@@ -11,6 +11,7 @@ class ExampleMailer < ApplicationMailer
 
     @infosall.uniq!
     @infosall.sort! { |a,b| b.created_at <=> a.created_at }
+
     mail(to: @user.email, subject: 'Sample Email')
 
     mg_client = Mailgun::Client.new ENV['key-00189745ce652e42d6f1ee591b9f4f6a']
