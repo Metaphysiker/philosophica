@@ -1,2 +1,10 @@
 Hi <%= @user.username %>
-Sample mail sent using smtp.
+
+Sie haben folgende Tags ausgewählt:
+<% @user.tag_list.each do |tag| %>
+    <%= tag %>
+<% end %>
+
+<% @infosall.each do |info| %>
+    <%= info.name %>
+<% end %>
