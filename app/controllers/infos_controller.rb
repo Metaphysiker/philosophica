@@ -1,5 +1,6 @@
 class InfosController < ApplicationController
 before_action :find_info, only: [:show, :edit, :update, :destroy]
+before_action :authenticate_user!, only: [:new,:edit, :create, :update, :destroy]
 
   def show
 

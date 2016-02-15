@@ -28,6 +28,16 @@ table.indextable{
     width: 20%;
 }
 
+.mainbox {
+    display:inline-block;
+    text-align: center;
+    width: 50%;
+    background: linear-gradient(to bottom right, white,	#E8E8E8 );
+    border-radius: 15px;
+    padding: 8px;
+    margin: 5px;
+    border: solid 3px #E8E8E8;
+}
 /* header */
 
 .erstesblau{

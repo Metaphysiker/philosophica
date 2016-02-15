@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+  before_action :authenticate_user!, only: [:new,:edit, :create, :update, :destroy]
+
   def index
    # @comingevents = Event.all.limit(5)
     @comingevents = Event.where('date > ?', DateTime.now).limit(5).order(:date)

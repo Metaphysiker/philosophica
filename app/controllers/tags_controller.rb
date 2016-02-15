@@ -1,4 +1,6 @@
 class TagsController < ApplicationController
+  before_action :authenticate_user!, only: [:new,:edit, :create, :update, :destroy]
+
   def index
     @tags = ActsAsTaggableOn::Tag.all
   end

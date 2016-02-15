@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :find_blog, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new,:edit, :create, :update, :destroy]
 
   def show
     @blog = Blog.find_by_url(params[:url])

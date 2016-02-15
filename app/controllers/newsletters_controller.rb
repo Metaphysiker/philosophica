@@ -1,4 +1,6 @@
 class NewslettersController < ApplicationController
+  before_action :authenticate_user!, only: [:new,:edit, :create, :update, :destroy]
+
   def index
     @newsletters = Newsletter.all
   end

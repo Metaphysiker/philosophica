@@ -1,12 +1,15 @@
-<h2>Blog von Philosophie.ch</h2> <br><br>
+<div style="align: center;"><h2>Blog von Philosophie.ch</h2> <br><br>
 
 <%= @blog.name %> <br>
 <%= @blog.description %><br><br>
 Erstellt von <%= getname(@blog.user_id) %><br><br>
 
 <% @blog.blogposts.each do |blog| %>
-    <%= blog.content %><br><br>
+    <div class="mainbox">
+    <%= blog.content %></div><br><br>
 <% end %>
 <br><br>
 
 <%= link_to "Neuer Blogeintrag", new_blog_blogpost_path(@blog.id) %>
+
+</div>

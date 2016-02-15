@@ -1,6 +1,8 @@
 <% @blogs.each do |blog| %>
+    <div class="mainbox">
   <%= link_to blog.name, philblog_path(blog.url) %> Erstellt von: <%= link_to getname(blog.user_id),profile_path(getname(blog.user_id) ) %><br>
-  <%= blog.description %><br> <br>
+  <%= blog.description %> </div><br>
 <% end %><br><br>
-
+<div class="mainbox">
 <%= link_to "Erstellen Sie Ihren eigenen Blog!", new_blog_path %>
+  </div>

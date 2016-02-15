@@ -1,8 +1,10 @@
 Alle Infos<br><br>
 
 <% @infos.each do |info| %>
+    <div class="mainbox">
   <%= link_to info.name, info_path(info) %><br>
   <%= info.content %><br>
   <%= info.kind %><br>
-  <%= info.user_id %><br><br>
+  <%= info.user_id %>
+    </div>
 <% end %>

@@ -19,8 +19,8 @@
   <% @eventsall.each do |event| %>
       <%= link_to event.name, event_path(event) %>, Datum: <%= event.date %>, Tags: <%= event.tag_list %><br>
   <% end %><br><br>
-  <% if (!current_user.id.nil?) && (@user.id == current_user.id) %>
-      <%= link_to 'Profil bearbeiten', edit_user_registration_path %>
-  <% end %>
+    <% if (!current_user.nil?) && (@user.id == current_user.id) %>
+        <%= link_to 'Profil bearbeiten', edit_user_registration_path %>
+    <% end %>
   <br>
 </div>

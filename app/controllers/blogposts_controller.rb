@@ -1,6 +1,7 @@
 class BlogpostsController < ApplicationController
   before_action :find_blogpost, only: [:show, :edit, :update, :destroy]
   before_action :find_blog
+  before_action :authenticate_user!, only: [:new,:edit, :create, :update, :destroy]
 
   def show
 
