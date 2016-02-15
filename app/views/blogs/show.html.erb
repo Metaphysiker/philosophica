@@ -10,6 +10,8 @@ Erstellt von <%= getname(@blog.user_id) %><br><br>
 <% end %>
 <br><br>
 
-<%= link_to "Neuer Blogeintrag", new_blog_blogpost_path(@blog.id) %>
+  <% if (!current_user.nil?) && (currentuserallowed?(current_user)) %>
+      <%= link_to "Neuer Blogeintrag", new_blog_blogpost_path(@blog.id) %>
+  <% end %>
 
 </div>

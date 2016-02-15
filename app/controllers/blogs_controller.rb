@@ -49,6 +49,14 @@ end
     return @user.username
   end
 
+  def currentuserallowed?(user)
+    if user.id == @blog.user_id
+      return true
+    else
+      return false
+    end
+  end
+
   private
 
   def blog_params
