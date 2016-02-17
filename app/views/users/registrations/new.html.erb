@@ -7,7 +7,7 @@
 
     <div class="form-inputs">
     <div class="counting" ><%= f.input :username, label: "Username      (will be pubicly displayed)", required: true, autofocus: true %><span class="count"></span></div><br>
-      <%= f.input :email, label: "eMail       (will NOT be publicly displayed)", required: true %>
+      <div class="countingmail" ><%= f.input :email, label: "eMail       (will NOT be publicly displayed)", required: true %><span class="countmail"></span></div><br>
       <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
       <%= f.input :password_confirmation, required: true %>
       <%= f.input :tag_list, as: :check_boxes, collection: ['Logik', 'Ethik', 'Metaphysik'] %>
@@ -41,6 +41,32 @@
     };
 
     $(".counting input").keyup(choosingbar);
+
+    function validateEmail(email) {
+      // http://stackoverflow.com/a/46181/11236
+
+      var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    }
+
+    var choosingbarmail = function( event ){
+
+      if (validateEmail($(event.target).val()) ){
+        greetingmail = "Gültige eMail-Adresse";
+        $(".countmail").css("background-color","green");
+        $(event.target).parents(".countingmail").children(".countmail").text(greetingmail);
+      } else{
+        greetingmail = "ungültige eMail-Adresse";
+        $(".countmail").css("background-color","red");
+        $(event.target).parents(".countingmail").children(".countmail").text(greetingmail);
+      }
+
+    };
+
+    $(".countingmail input").keyup(choosingbarmail);
+
+
+
   });
 
 </script>
