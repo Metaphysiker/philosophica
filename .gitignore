@@ -15,6 +15,5 @@ public/uploads
 tmp
 logs
 
-/database.yml
 
-/application.yml
+/secrets.yml
