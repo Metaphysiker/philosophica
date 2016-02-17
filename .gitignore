@@ -14,3 +14,7 @@
 public/uploads
 tmp
 logs
+
+/database.yml
+
+/application.yml
