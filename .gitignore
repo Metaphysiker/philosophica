@@ -16,4 +16,4 @@ tmp
 logs
 
 
-/config/secrets.yml
+/secrets.yml
