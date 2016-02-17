@@ -1,10 +1,12 @@
 <h2>Sign up</h2>
 
+<%= javascript_tag "name = #{@names.to_json.html_safe};" %>
+
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :username, label: "Username      (will be pubicly displayed)", required: true, autofocus: true %>
+    <div class="counting" ><%= f.input :username, label: "Username      (will be pubicly displayed)", required: true, autofocus: true %><span class="count"></span></div><br>
       <%= f.input :email, label: "eMail       (will NOT be publicly displayed)", required: true %>
       <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
       <%= f.input :password_confirmation, required: true %>
@@ -18,3 +20,21 @@
 
 <%= render "devise/shared/links" %>
 
+<script>
+
+  $(document).ready(function(){
+
+    var choosingbar = function( event ){
+
+      var greeting = "username is free";
+      var names = <%=raw @names.to_json %>;
+      if ($.inArray($(event.target).val(), names) > -1 ){
+        greeting = "username is already taken";
+      }
+      $(event.target).parents(".counting").children(".count").text(greeting);
+    };
+
+    $(".counting input").keyup(choosingbar);
+  });
+
+</script>
