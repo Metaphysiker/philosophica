@@ -30,8 +30,14 @@
       var names = <%=raw @names.to_json %>;
       if ($.inArray($(event.target).val(), names) > -1 ){
         greeting = "username is already taken";
+        $(".count").css("background-color","red");
+        $(event.target).parents(".counting").children(".count").text(greeting);
+      } else{
+        greeting = "username is free, take it!";
+        $(".count").css("background-color","green");
+        $(event.target).parents(".counting").children(".count").text(greeting);
       }
-      $(event.target).parents(".counting").children(".count").text(greeting);
+
     };
 
     $(".counting input").keyup(choosingbar);
