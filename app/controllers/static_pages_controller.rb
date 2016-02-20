@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   before_action :authenticate_user!, only: [:new,:edit, :create, :update, :destroy]
+  respond_to :html, :js
 
   def index
    # @comingevents = Event.all.limit(5)
@@ -17,6 +18,13 @@ class StaticPagesController < ApplicationController
   end
 
   def forschung
+
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+    @first_calendar_day = @date.beginning_of_month.beginning_of_week(:monday)
+    @last_calendar_day = @date.end_of_month.end_of_week(:monday)
+    @weeks = (@first_calendar_day..@last_calendar_day).to_a.in_groups_of(7)
+
+
 
   end
 

@@ -1,1 +1,22 @@
-Forschung<br>
+Forschung <br>
+
+<div id="kalendi">
+  <%= render 'kalendi' %>
+</div>
+
+<ul class="lista">
+
+</ul>
+
+<script>
+  $(document).ready(function(){
+    $(document).on('click', ".btn2", function () {
+      var buttonContent = $(this).html();
+      var btn = document.createElement("BUTTON");        // Create a <button> element
+      var t = document.createTextNode("CLICK ME");       // Create a text node
+      btn.appendChild(t);
+      $(".lista").append("<li>" + buttonContent + btn +"</li>");
+    });
+
+  });
+</script>
