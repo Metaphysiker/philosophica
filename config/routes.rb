@@ -23,7 +23,9 @@ Rails.application.routes.draw do
 
   resource :calendar, only: [:show], controller: :calendar
   resources :newsletters
-  resources :events
+  resources :events do
+    resources :date_events
+  end
   resources :blogs do
     resources :blogposts
   end

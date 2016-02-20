@@ -1,0 +1,31 @@
+<div class="userview">
+  <%= link_to "Früher ", forschung_path(date: @date - 1.month), remote:true %>
+  <%= "#{@date.strftime("%B")} #{@date.year}" %>
+  <%= link_to " Später ", forschung_path(date: @date + 1.month), remote:true %>
+</div>
+<br>
+<table class="calendar">
+  <tr>
+    <th>Monday</th>
+    <th>Tuesday</th><th>Wednesday</th>
+    <th>Thursday</th><th>Friday</th>
+    <th>Saturday</th><th>Sunday</th>
+  </tr>
+  <% @weeks.each do |week| %>
+      <tr>
+        <% week.each do |date| %>
+            <% if date.month != @date.month %>
+                <td style="background-color: gray">
+                  <%= date.day %><br>
+                </td>
+            <% else %>
+                <td>
+                  <%= date.day %><br>
+                  <button class="btn2"><%= date %></button>
+                </td>
+            <% end %>
+        <% end %>
+      </tr>
+  <% end %>
+</table>
+

@@ -12,11 +12,7 @@ Forschung <br>
   $(document).ready(function(){
     $(document).on('click', ".btn2", function () {
       var buttonContent = $(this).html();
-      var btn = document.createElement("BUTTON");        // Create a <button> element
-      var t = document.createTextNode("CLICK ME");       // Create a text node
-      btn.appendChild(t);
-      $(".lista").append("<li>" + buttonContent + btn +"</li>");
+      $(".lista").append("<li>" + buttonContent + "</li>");
     });
-
   });
 </script>
