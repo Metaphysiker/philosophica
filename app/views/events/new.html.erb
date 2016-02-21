@@ -1,17 +1,8 @@
 <h2>Neuer Event</h2><br>
-<div id="kalendi">
-  <%= render 'kalendi' %>
-</div>
-
-<ul class="lista">
-
-</ul>
-
 
 <%= simple_form_for(@event) do |f| %>
     <%= f.input :name %>
     <%= f.input :content %>
-    <%= f.input :date %>
     <%= f.input :tag_list, as: :check_boxes, collection: ['Logik', 'Ethik', 'Metaphysik'] %><br>
     <%= f.button :submit %>
 <% end %>

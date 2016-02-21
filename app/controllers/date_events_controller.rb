@@ -18,7 +18,7 @@ class DateEventsController < ApplicationController
       @dateevent.event_id = @event.id
       @dateevent.save
     end
-    redirect_to root_path
+    redirect_to kalender_path
   end
 end
 

@@ -29,7 +29,7 @@ class EventsController < ApplicationController
     @event.user_id = current_user.id
     if @event.save
       flash[:success] = "Der Event wurde erstellt!"
-      redirect_to event_path(@event)
+      redirect_to new_event_date_event_path(@event)
     else
       render 'new'
     end
