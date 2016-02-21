@@ -15,7 +15,12 @@ Event-Kalender<br>
         <% event.date_events.each do |data| %>
             <% if data.date == day%>
                 <br>
-                <%= link_to event.name, event_path(event) %>
+                <%= link_to event.name, event_path(event) %> |
+                <div class="clickme" style="display: inline-block;" %>
+                 Mehr Information
+                 <div class="book" style="display:none;"> <%= event.content %> </div>
+                </div> | 
+                <%= data.date %><br>
             <% end %>
         <% end %>
     <% end %>

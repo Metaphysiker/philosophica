@@ -12,7 +12,6 @@ class DateEventsController < ApplicationController
 
   def create
     @datelist = params[:date].split(", ")
-    @datelist.uniq
     @datelist.each do |date|
       params[:date_event][:date] = date
       @dateevent = DateEvent.new(dateevents_params)

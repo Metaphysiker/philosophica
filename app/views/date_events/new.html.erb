@@ -7,7 +7,6 @@
 
 </ul><br>
 <div class ="listb"></div>
-<div class="alistb">2015-10-10</div>
 <button class="btn3">Mach mal</button>
 
 <%= simple_form_for([@event, @dateevent]) do |f| %>
@@ -20,6 +19,7 @@
   $(document).ready(function(){
     $(document).on('click', ".btn2", function () {
       var buttonContent = $(this).html();
+      $(this).hide()
       $(".lista").append("<li>" + buttonContent + "</li>");
       $(".listb").append (buttonContent + ", ");
     });
