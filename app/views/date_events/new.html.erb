@@ -2,13 +2,17 @@
 <div id="kalendi">
   <%= render 'kalendi' %>
 </div>
-
+<br>
 <ul class="lista">
 
-</ul>
+</ul><br>
+<div class ="listb"></div>
+<div class="alistb">2015-10-10</div>
+<button class="btn3">Mach mal</button>
 
 <%= simple_form_for([@event, @dateevent]) do |f| %>
-    <%= f.input :date %>
+    <%= hidden_field_tag(:date, @datelist) %>
+    <%= f.input :date, :as => :hidden, :input_html => { :value => "placeholder" } %>
     <%= f.button :submit %>
 <% end %>
 
@@ -17,6 +21,14 @@
     $(document).on('click', ".btn2", function () {
       var buttonContent = $(this).html();
       $(".lista").append("<li>" + buttonContent + "</li>");
+      $(".listb").append (buttonContent + ", ");
     });
+
+    $(document).on('click', ".btn3", function () {
+      var buttonContent = $(this).html();
+      var datelist = $(".listb").text();
+      document.getElementById('date').value = datelist;
+    });
+
   });
 </script>

@@ -54,9 +54,11 @@ Event-Kalender<br>
                   <td style="background-color: gray">
                     <%= date.day %>
                     <% @events.each do |event| %>
-                        <% if event.date == date %>
-                            <br>
-                            <%= link_to event.name, event_path(event) %>
+                        <% event.date_events.each do |data| %>
+                            <% if data.date == date%>
+                                <br>
+                                <%= link_to event.name, event_path(event) %>
+                            <% end %>
                         <% end %>
                     <% end %>
                   </td>
@@ -64,9 +66,11 @@ Event-Kalender<br>
                 <td>
     <%= date.day %>
                   <% @events.each do |event| %>
-                      <% if event.date == date%>
+                      <% event.date_events.each do |data| %>
+                        <% if data.date == date%>
                           <br>
                           <%= link_to event.name, event_path(event) %>
+                        <% end %>
                       <% end %>
                   <% end %>
                 </td>

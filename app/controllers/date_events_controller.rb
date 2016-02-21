@@ -1,9 +1,9 @@
 class DateEventsController < ApplicationController
-  before_action :find_event, only: [:show, :new, :edit, :update, :destroy]
+  before_action :find_event, only: [:show, :create, :new, :edit, :update, :destroy]
 
   def new
     @dateevent = DateEvent.new
-
+    @datelist = "Test"
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
     @first_calendar_day = @date.beginning_of_month.beginning_of_week(:monday)
     @last_calendar_day = @date.end_of_month.end_of_week(:monday)
@@ -11,7 +11,14 @@ class DateEventsController < ApplicationController
   end
 
   def create
-    @dateevent = DateEvent.new(dateevents_params)
+    @datelist = params[:date].split(", ")
+    @datelist.each do |date|
+      params[:date_event][:date] = date
+      @dateevent = DateEvent.new(dateevents_params)
+      @dateevent.event_id = @event.id
+      @dateevent.save
+    end
+    redirect_to root_path
   end
 end
 
