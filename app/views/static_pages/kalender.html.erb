@@ -8,30 +8,19 @@ Event-Kalender<br>
 
 <h1>Events vom <%= "#{@date.strftime("%B")} #{@date.year}" %></h1>
 
-<% actualmonth(@date) %>
 
-<table style="margin-left:auto;margin-right:auto;">
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Inhalt</th>
-    <th>Datum</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
 
-  <tbody>
-  <% @eventics.each do |event| %>
-      <tr>
-        <td><%= link_to event.name, event_path(event) %></td>
-        <td><div class="clickme">
-          Click here
-          <div class="book" style="display:none;"> <%= event.content %> </div>
-        <td><%= event.date %></div></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+<% @alldays.each do |day| %>
+    <% @events.each do |event| %>
+        <% event.date_events.each do |data| %>
+            <% if data.date == day%>
+                <br>
+                <%= link_to event.name, event_path(event) %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>
+
 <br>
 <%= link_to "Event hinzufügen", new_event_path %><br><br>
 <div class="userview">
