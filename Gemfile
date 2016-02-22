@@ -9,6 +9,7 @@ gem 'rails', '4.2.5'
 # Use postgresql as the database for Active Record
 gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
 gem 'delayed_job_active_record'
+gem 'tinymce-rails'
 
 
 group :development do

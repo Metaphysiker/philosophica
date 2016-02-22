@@ -21,7 +21,8 @@
             <% else %>
                 <td>
                   <%= date.day %><br>
-                  <button class="btn2"><%= date %></button>
+                  <div class="adddate"><%= date%></div><br>
+                  <button onclick="foo.adddate(<%= date.year %>,<%= date.month %>,<%= date.day %>)"><%= date %></button>
                 </td>
             <% end %>
         <% end %>

@@ -1,5 +1,6 @@
 class DateEventsController < ApplicationController
   before_action :find_event, only: [:show, :create, :new, :edit, :update, :destroy]
+  respond_to :html, :js
 
   def new
     @dateevent = DateEvent.new

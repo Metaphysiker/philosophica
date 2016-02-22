@@ -39,6 +39,13 @@ table.indextable{
     border: solid 3px #E8E8E8;
 }
 /* header */
+.adddate{
+    background-color: #fff8f6;
+    height: 90%;
+    width: 90%;
+    margin: 5px;
+    border-radius: 8px;
+}
 
 .erstesblau{
     text-align: left;
