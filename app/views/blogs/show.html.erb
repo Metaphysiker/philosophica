@@ -6,7 +6,12 @@ Erstellt von <%= getname(@blog.user_id) %><br><br>
 
 <% @blog.blogposts.each do |blog| %>
     <div class="mainbox">
-    <%= simple_format(blog.content) %></div><br><br>
+      <div class="blogpostentrys">
+        <b><%= blog.title %></b><br>
+      </div>
+      <div class="blogpostentrys">
+        <%= simple_format(blog.content) %>
+      </div></div><br><br>
 <% end %>
 <br><br>
 

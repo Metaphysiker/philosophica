@@ -56,6 +56,12 @@ table.indextable{
     padding-bottom: 5px;
 }
 
+.blogpostentrys{
+    background-color: #d0d0d2;
+    padding: 6px;
+    margin: 6px;
+}
+
 .erstesblau a{
     color: #ffffff;
     text-decoration: none;

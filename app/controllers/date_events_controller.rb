@@ -1,5 +1,6 @@
 class DateEventsController < ApplicationController
   before_action :find_event, only: [:show, :create, :new, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new,:edit, :create, :update, :destroy]
   respond_to :html, :js
 
   def new
@@ -17,6 +18,7 @@ class DateEventsController < ApplicationController
       params[:date_event][:date] = date
       @dateevent = DateEvent.new(dateevents_params)
       @dateevent.event_id = @event.id
+      @dateevent.user_id = current_user.id
       @dateevent.save
     end
     redirect_to kalender_path
