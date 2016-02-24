@@ -1,5 +1,10 @@
-Alle User<br><br>
-
+Alle User <table style="display: inline-block">
+  <tr><td>Username</td><td>Blogrole</td><td>Eventrole</td><td></td></tr>
 <% @users.each do |user| %>
-  <%= user.username %>, Blogrole: <%= user.blogrole %> <%= link_to "Bearbeiten", edit_user_path(user) %><br>
+<tr>
+  <td><%= user.username %></td>
+      <td> <%= user.blogrole %></td>
+      <td> <%= user.eventrole %></td><td><%= link_to "Bearbeiten", edit_user_path(user) %></td><br>
+</tr>
 <% end %>
+</table>
