@@ -2,13 +2,14 @@ Rails.application.routes.draw do
   get 'calendar/show'
 
   #devise_for :users
-  devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations" }
+  devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations" }, :path_prefix => 'my'
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'static_pages#index'
-
+  get 'adminpanel' => 'users#adminpanel', as: 'adminpanel'
   get 'user/:username/' => 'users#show', as: 'profile'
   get 'blog/:url/' => 'blogs#show', as: 'philblog'
 

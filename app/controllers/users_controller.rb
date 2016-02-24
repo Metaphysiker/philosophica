@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+before_action :only_admin, only: :adminpanel
 
   def show
     @user = User.find_by_username(params[:username])
@@ -21,6 +22,35 @@ class UsersController < ApplicationController
     @eventsall.sort! { |a,b| a.date <=> b.date }
   end
 
+  # GET /resource/edit
+   def edit
+    @user = User.find(params[:id])
+   end
+
+  # PUT /resource
+   def update
+     @user = User.find(params[:id])
+     if @user.update(user_params)
+       redirect_to adminpanel_path
+     else
+       render 'edit'
+     end
+   end
+
+  def adminpanel
+    @users = User.all
+  end
 
 
+
+end
+
+def user_params
+  params.require(:user).permit(:blogrole)
+end
+
+def only_admin
+  if current_user.nil? || current_user.admin == false
+    redirect_to root_path
+  end
 end

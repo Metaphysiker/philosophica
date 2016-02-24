@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223111950) do
+ActiveRecord::Schema.define(version: 20160224140519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20160223111950) do
     t.date     "date"
     t.text     "content"
     t.integer  "user_id"
+    t.boolean  "published"
   end
 
   create_table "infos", force: :cascade do |t|
@@ -118,6 +119,7 @@ ActiveRecord::Schema.define(version: 20160223111950) do
     t.text     "aboutme"
     t.boolean  "admin",                  default: false
     t.string   "blogrole",               default: "regular"
+    t.string   "eventrole",              default: "regular"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

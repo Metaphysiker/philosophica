@@ -1,0 +1,5 @@
+Alle User<br><br>
+
+<% @users.each do |user| %>
+  <%= user.username %>, Blogrole: <%= user.blogrole %> <%= link_to "Bearbeiten", edit_user_path(user) %><br>
+<% end %>

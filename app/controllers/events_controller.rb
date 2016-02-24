@@ -27,6 +27,12 @@ class EventsController < ApplicationController
     params[:event][:tag_list] = params[:event][:tag_list].join(',')
     @event = Event.new(event_params)
     @event.user_id = current_user.id
+
+    if instantpublish?
+      @event.published = true
+    else
+      @event.published = false
+    end
     if @event.save
       flash[:success] = "Der Event wurde erstellt!"
       redirect_to new_event_date_event_path(@event)
@@ -58,5 +64,12 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def instantpublish?
+    if current_user.admin? == true || current_user.eventrole == "editor"
+      return true
+    else
+      return false
+    end
+  end
 
 end
