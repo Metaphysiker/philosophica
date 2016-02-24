@@ -46,7 +46,7 @@ before_action :only_admin, only: :adminpanel
 end
 
 def user_params
-  params.require(:user).permit(:blogrole)
+  params.require(:user).permit(:blogrole, :eventrole)
 end
 
 def only_admin

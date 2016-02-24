@@ -1,16 +1,31 @@
 <h2>Edit</h2>
 
+<table style="display: inline-block">
+  <tr><td>Username</td><td>Blogrole</td><td>Eventrole</td><td></td></tr>
+
 <%= form_for(@user) do |f| %>
 
-
+<tr>
+  <td>
     <div class="field">
       <%= f.label :blogrole %><br />
-      <%= f.text_field :blogrole %>
+      <%= f.select :blogrole, [['regular','regular'],['editor','editor'],['publisher','publisher']] %>
     </div>
-
+  </td>
+  <td>
+    <div class="field">
+      <%= f.label :eventrole %><br />
+      <%= f.select :eventrole, [['regular','regular'],['editor','editor'],['publisher','publisher']] %>
+    </div>
+  </td>
+  <td>
     <div class="actions">
       <%= f.submit "Update" %>
     </div>
+  </td>
+</tr>
 <% end %>
+</table>
+
 
 <%= link_to "Back", :back %>
