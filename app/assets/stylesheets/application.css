@@ -20,9 +20,15 @@ html, body{
     font-family: "Arial";
 }
 
+.indextable1{
+    align: center;
+    display: inline-block;
+}
+
 .indextable{
     align: center;
 }
+
 
 table.indextable{
     width: 20%;

@@ -7,9 +7,13 @@
       <%= f.text_field :title %>
     </div>
 
-    <div class="field">
-      <%= f.label :content %><br />
-      <%= f.text_area :content, :cols =>20, :rows => 30, class: "tinymce" %>
+    <div class="indextable1">
+      <div class="field">
+        <%= f.label :content %><br />
+          <div style="width: 400px">
+          <%= f.text_area :content, :class => "tinymce", :rows => 3 %>
+          </div>
+      </div>
     </div>
 
     <div class="actions">
@@ -18,25 +22,3 @@
 <% end %>
 
 <%= tinymce %>
-
-<script>
-  tinyMCE.init({
-    // General options
-    mode: "textareas",
-    width: "300",
-    height: "200",
-
-    // Theme options
-    theme_advanced_buttons1: "bold,italic,underline,|,justifyleft,justifycenter,justifyright,justifyfull",
-    theme_advanced_buttons2: "",
-    theme_advanced_buttons3: "",
-    theme_advanced_buttons4: "",
-    theme_advanced_toolbar_location: "top",
-    theme_advanced_toolbar_align: "left",
-    theme_advanced_resizing: false,
-
-    // Selector
-    editor_selector: "tinymce",
-
-  });
-</script>
