@@ -1,0 +1,302 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
+html, body{
+    margin:0;
+    padding:0;
+    font-family: "Arial";
+}
+
+.indextable1{
+    align: center;
+    display: inline-block;
+}
+
+.indextable{
+    align: center;
+}
+
+
+table.indextable{
+    width: 20%;
+}
+
+.mainbox {
+    display:inline-block;
+    text-align: center;
+    width: 50%;
+    background: linear-gradient(to bottom right, white,	#E8E8E8 );
+    border-radius: 15px;
+    padding: 8px;
+    margin: 5px;
+    border: solid 3px #E8E8E8;
+}
+/* header */
+.adddate{
+    background-color: #fff8f6;
+    height: 90%;
+    width: 90%;
+    margin: 5px;
+    border-radius: 8px;
+}
+
+.erstesblau{
+    text-align: left;
+    background-color: #119eff;
+    width: 100%;
+    color: #ffffff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.blogpostentrys{
+    background-color: #d0d0d2;
+    padding: 6px;
+    margin: 6px;
+}
+
+.erstesblau a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.erstesblau a:hover{
+    color: #bdbdbd;
+    text-decoration: none;
+}
+
+.zweitesblau{
+    text-align: center;
+    background-color: #1f4dff;
+    width: 100%;
+    color: #ffffff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.zweitesblau a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.zweitesblau a:hover{
+    color: #bdbdbd;
+    text-decoration: none;
+}
+
+.drittesblau{
+    text-align: center;
+    background-color: #bafcff;
+    width: 100%;
+    color: #434343;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+#menu{
+    margin: 0;
+}
+
+ul#menu li {
+    display:inline;
+    padding: 0.5%;
+}
+
+.rcornersevent {
+    display:inline-block;
+    background-color: #cdd1d1;
+    height: 100%;
+    width: 150px;
+    float: right;
+    font-size: 0.8em;
+}
+
+.offset {
+    background-color: #730E15;
+}
+
+.rcorners2 {
+    display:inline-block;
+    border-radius: 8px;
+    background-color: #cdd1d1;
+    height: 100%;
+    width: 100%;
+    float: right;
+}
+
+.userview {
+    display:inline-block;
+    border-radius: 8px;
+    background-color: #cdd1d1;
+    padding: 15px;
+    width: 50%;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.calendar{
+    display:inline-block;
+    border: 5px solid;
+    border-radius: 5px;
+    border-color: black;
+    padding: 0;
+    margin: 0;
+    border-collapse: collapse;
+    font-size: 1em;
+    table-layout: fixed;
+}
+
+.calendar td{
+    vertical-align: top;
+    border: 2px solid;
+    margin: 40px;
+    border-color: black;
+    height: 100px;
+    font-size: 1em;
+    min-width: 114px;
+}
+
+.calendar tr{
+    border: 2px solid;
+    background-color: #d8d8d8;
+    min-height: 100px;
+    font-size: 1em;
+}
+
+.columnheader{
+    font-size: 1em;
+    text-align: center;
+    background-color: #bafcff;
+    width: 100%;
+    color: #434343;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.columnheader1{
+    font-size: small;
+    text-align: center;
+    background-color: #bafcff;
+    width: 100%;
+    color: #434343;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-top: 10px;
+}
+
+.columnheadermess{
+    font-size: small;
+    text-align: center;
+    background-color: #bafcff;
+    width: 100%;
+    height: 50px;
+    color: #434343;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.columnheadermess a{
+    text-decoration: none;
+}
+
+.columnheaderright{
+    font-size: small;
+    text-align: center;
+    background-color: #bafcff;
+    width: 100%;
+    height: 112px;
+    color: #434343;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* collapsible list */
+.collapsibleList{
+    margin: 0;
+    list-style-type: none;
+    padding-right: 5px;
+}
+
+.collapsibleList ul{
+    list-style-type: none;
+    text-align: center;
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+.collapsibleList li > input + * {
+    display: none;
+}
+
+.collapsibleList li > input:checked + * {
+    display: block;
+}
+
+.collapsibleList li > input {
+    display: none;
+}
+
+.collapsibleList label {
+    cursor: pointer;
+}
+
+@media (max-width: 749px) {
+    .media2{
+        display: none;
+    }
+
+    .calendar{
+        font-size: 8px;
+    }
+
+    .calendar td{
+        min-width: 60px;
+    }
+}
+
+
+@media only screen and (min-width: 750px) {
+    .media1{
+        display: none;
+    }
+}
