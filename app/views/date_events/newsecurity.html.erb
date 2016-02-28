@@ -1,0 +1,87 @@
+<h2>Neuer Event</h2><br>
+<div id="kalendi">
+  <%= render 'static_pages/kalendi' %>
+</div>
+<br>
+<ul class="lista">
+
+</ul><br>
+<div class ="listb"></div>
+<button class="btn3">Mach mal</button><br>
+<button id="myBtn">Try it</button>
+
+<p id="demo"></p>
+
+<%= simple_form_for([@event, @dateevent]) do |f| %>
+    <%= hidden_field_tag(:date, @datelist) %>
+    <%= f.input :date, :as => :hidden, :input_html => { :value => "placeholder" } %>
+    <%= f.button :submit %>
+<% end %>
+
+<script>
+
+  var gunther = window.gunther || {};
+  gunther.eventsdatecontroller=(function(module){
+    module.create=function(rootelement){
+      var createdate = new Date();
+      var that = {
+        "dates": [],
+        "currentyear": createdate.getFullYear(),
+        "currentmonth": createdate.getMonth() + 1
+      };
+      that.indexofdate= function(year, month, day){
+        for(var i=0; i < that.dates.length; i++){
+          var o = that.dates[i];
+          if (o.year == year && o.month == month && o.day == day){
+            return i;
+          }
+        }
+        return -1;
+      };
+      that.hasdate= function(year, month, day){
+        return(that.indexofdate(year, month, day) >= 0);
+      };
+      that.adddate= function(year, month, day){
+        if( that.hasdate(year,month, day)){
+          return;
+        }
+        that.dates.push({
+          "year": year,
+          "month": month,
+          "day" : day
+        });
+      };
+      that.deletedate= function(year, month, day){
+        var index = that.indexofdate(year, month, day);
+        if (index >= 0){
+          that.dates.splice(index,1);
+        }
+      };
+      return that;
+    };
+    return module;
+  }(gunther.eventsdatecontroller || {}))
+
+  var foo = gunther.eventsdatecontroller.create({});
+
+  $(document).ready(function(){
+    $(document).on('click', ".btn2", function () {
+      var buttonContent = $(this).html();
+      $(this).hide()
+      $(".lista").append("<li>" + buttonContent + "</li>");
+      $(".listb").append (buttonContent + ", ");
+    });
+
+    $(document).on('click', ".btn3", function () {
+      var buttonContent = $(this).html();
+      var datelist = $(".listb").text();
+      document.getElementById('date').value = datelist;
+      displayDate();
+    });
+
+    function displayDate() {
+      document.getElementById("demo").innerHTML = Date();
+    }
+
+  });
+</script>

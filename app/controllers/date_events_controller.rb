@@ -13,7 +13,7 @@ class DateEventsController < ApplicationController
   end
 
   def create
-    @datelist = params[:date].split(", ")
+    @datelist = params[:date].split(",")
     @datelist.each do |date|
       params[:date_event][:date] = date
       @dateevent = DateEvent.new(dateevents_params)
