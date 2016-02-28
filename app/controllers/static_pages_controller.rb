@@ -36,4 +36,8 @@ class StaticPagesController < ApplicationController
     @eventics = Event.joins(:date_events).where('extract(month from date_events.date) = ?', @date.month)
     @alldays = (@first_calendar_day..@last_calendar_day)
   end
+
+  def st
+
+  end
 end

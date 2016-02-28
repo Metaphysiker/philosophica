@@ -10,7 +10,6 @@
   });
 </script>
 <br>
-<div class="listb">2016-8-2</div>
 <button class="btn3">Add dates to the hidden field</button>
 
 <%= simple_form_for([@event, @dateevent]) do |f| %>
@@ -22,7 +21,7 @@
   <script>
 
     $(document).ready(function(){
-      $(document).on('click', ".btn3", function () {
+      $(document).on('click', "submit", function () {
         var datelist = $("input.datepicker").val();
         document.getElementById('date').value = datelist;
       });
