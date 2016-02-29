@@ -20,7 +20,7 @@ html, body{
     font-family: "Arial";
 }
 
-#jesus{
+.jesus{
     align: center;
     display: inline-block;
 }
