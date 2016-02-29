@@ -20,6 +20,16 @@ html, body{
     font-family: "Arial";
 }
 
+#jesus{
+    align: center;
+    display: inline-block;
+}
+
+.table-condensed{
+    width: 500px;
+    text-align: center;
+}
+
 .indextable1{
     align: center;
     display: inline-block;

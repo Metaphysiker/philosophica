@@ -1,14 +1,17 @@
 <h2>Neuer Event</h2><br>
+<div id="jesus"></div>
 <input type="text" class='datepicker' >
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $('.datepicker').datepicker({
+    $('#jesus').datepicker({
       multidate: true,
-      format: 'yyyy-mm-dd'
+      format: 'yyyy-mm-dd',
+      todayHighlight: true,
     });
   });
 </script>
+
 <br>
 <button class="btn3">Add dates to the hidden field</button>
 
