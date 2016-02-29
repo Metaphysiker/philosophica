@@ -10,20 +10,26 @@
     <%= f.button :submit %>
 <% end %>
 
+  <script>
 
-<script type="text/javascript">
-  $(document).ready(function(){
-    $input = $('.datepicker');
-    $input.datepicker({
-      multidate: true,
-      format: 'yyyy-mm-dd',
-      todayHighlight: true,
-      container: ".jesus",
-      title: "An welchen Tagen findet der Event statt?",
-      weekStart: 1
+    $(document).ready(function(){
+      $(document).on('click', ".btn3", function () {
+        var datelist = $("input.datepicker").val();
+        document.getElementById('date').value = datelist;
+      });
+
+      $input = $('.datepicker');
+      $input.datepicker({
+        multidate: true,
+        format: 'yyyy-mm-dd',
+        todayHighlight: true,
+        container: ".jesus",
+        title: "An welchen Tagen findet der Event statt?",
+        weekStart: 1
+      });
+      $input.data('datepicker').hide = function () {};
+      $input.datepicker('show');
     });
-    $input.data('datepicker').hide = function () {};
-    $input.datepicker('show');
-  });
 </script>
+
 
