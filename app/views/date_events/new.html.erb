@@ -1,14 +1,6 @@
 <h2>Neuer Event</h2><br>
+<div class="jesus"></div><br><br>
 <input type="text" class='datepicker' >
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.datepicker').datepicker({
-      multidate: true,
-      format: 'yyyy-mm-dd'
-    });
-  });
-</script>
 <br>
 <button class="btn3">Add dates to the hidden field</button>
 
@@ -18,14 +10,20 @@
     <%= f.button :submit %>
 <% end %>
 
-  <script>
 
-    $(document).ready(function(){
-      $(document).on('click', "submit", function () {
-        var datelist = $("input.datepicker").val();
-        document.getElementById('date').value = datelist;
-      });
+<script type="text/javascript">
+  $(document).ready(function(){
+    $input = $('.datepicker');
+    $input.datepicker({
+      multidate: true,
+      format: 'yyyy-mm-dd',
+      todayHighlight: true,
+      container: ".jesus",
+      title: "An welchen Tagen findet der Event statt?",
+      weekStart: 1
     });
+    $input.data('datepicker').hide = function () {};
+    $input.datepicker('show');
+  });
 </script>
-
 

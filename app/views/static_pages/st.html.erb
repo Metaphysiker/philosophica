@@ -4,12 +4,16 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $('.datepicker').datepicker({
+    $input = $('.datepicker');
+    $input.datepicker({
       multidate: true,
       format: 'yyyy-mm-dd',
       todayHighlight: true,
-      container: ".jesus"
+      container: ".jesus",
+      title: "An welchen Tagen findet der Event statt?",
+      weekStart: 1
     });
+    $input.data('datepicker').hide = function () {};
+    $input.datepicker('show');
   });
 </script>
-
