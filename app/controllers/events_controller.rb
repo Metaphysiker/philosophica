@@ -80,7 +80,7 @@ def event_params
 end
 
 def find_event
-  @event = Event.find(params[:id])
+  @event = Event.find(params[:event_id])
 end
 
 def instantpublish?
