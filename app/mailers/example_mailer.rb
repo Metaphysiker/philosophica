@@ -23,5 +23,12 @@ class ExampleMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Sample Email')
 
   end
+
+  def new_event_mail(user)
+    @user = user
+
+    mail(to: @user.email, subject: 'Event veröffentlichen')
+
+  end
 end
 

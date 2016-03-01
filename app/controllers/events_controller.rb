@@ -33,6 +33,10 @@ class EventsController < ApplicationController
       @event.published = true
     else
       @event.published = false
+      @admins = User.where(admin: true)
+      @admins.each do |admin|
+        ExampleMailer.new_event_mail(admin).deliver
+      end
     end
     if @event.save
       flash[:success] = "Der Event wurde erstellt!"
