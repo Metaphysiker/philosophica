@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   before_action :find_event, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new,:edit, :create, :update, :destroy]
 
+
   def index
     @events = Event. all.order("date")
   end
@@ -80,6 +81,14 @@ def event_params
 end
 
 def find_event
+  if params[:event_id].nil?
+    @event = Event.find(params[:id])
+  else
+    @event = Event.find(params[:event_id])
+  end
+end
+
+def find_eventcreate
   @event = Event.find(params[:event_id])
 end
 

@@ -1,9 +1,14 @@
 class DateEventsController < ApplicationController
-  before_action :find_event, only: [:show, :create, :new, :edit, :update, :destroy]
+  before_action :find_event, only: [:create, :new, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new,:edit, :create, :update, :destroy]
   respond_to :html, :js
 
+  def show
+
+  end
+
   def new
+    @event = Event.find(params[:event_id])
     @dateevent = DateEvent.new
     @datelist = "Test"
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
@@ -13,6 +18,7 @@ class DateEventsController < ApplicationController
   end
 
   def create
+    @event = Event.find(params[:event_id])
     @datelist = params[:date].split(",")
     @datelist.each do |date|
       params[:date_event][:date] = date
@@ -32,5 +38,13 @@ def dateevents_params
 end
 
 def find_event
-  @event = Event.find(params[:event_id])
+  if params[:event_id].nil?
+    @event = Event.find(params[:id])
+  else
+   @event = Event.find(params[:event_id])
+  end
+end
+
+def find_eventshow
+  @event = Event.find(params[:id])
 end
