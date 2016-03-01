@@ -11,13 +11,20 @@
               </th>
               <th style="padding: 0;" >
                 <div class="rcornersevent">
-                  <% @comingevents.each do |event| %>
-                      <%= link_to event_path(event) do %>
-                    <%= event.name %><br>
-                    <%= event.content %><br>
-                    <%= event.date %><br>
+                  <% i = 0 %>
+                  <% @comingdays.each do |day| %>
+                      <% @comingevents.each do |event| %>
+                          <% event.date_events.each do |data| %>
+                              <% if data.date == day%>
+                                  <%= link_to event.name, event_path(event) %><br>
+                                  <%= data.date %><br><br>
+                                  <% i = i + 1 %>
+                              <% end %>
+                              <% break if i == 5 %>
                           <% end %>
-                      <br>
+                          <% break if i == 5 %>
+                      <% end %>
+                      <% break if i == 5 %>
                   <% end %>
                 </div>
               </th>

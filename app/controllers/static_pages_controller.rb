@@ -4,10 +4,14 @@ class StaticPagesController < ApplicationController
 
   def index
    # @comingevents = Event.all.limit(5)
-   # @comingevents = Event.where('date > ?', DateTime.now).limit(5).order(:date)
-    @comingevents = Event.where(published: true).joins(:date_events).where('date_events.date> ?', DateTime.now).limit(5).order(:date)
+   # @comingevents = Event.where('date > ?', DateTime.now).where(published: true).order(:date)
+   # @eventics = Event.joins(:date_events).where('date_events.date > ?', DateTime.now).where(published: true)
+    @comingevents = Event.where(published: true)
     @forschungs = Info.where(kind: '1').limit(4).order(:created_at).reverse_order
     @neugierigs = Info.where(kind: '2').limit(4).order(:created_at).reverse_order
+    @date = Date.today()
+    @dateplusyear = @date + 2.years
+    @comingdays = (@date..@dateplusyear)
   end
 
   def themen
