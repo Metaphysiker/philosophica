@@ -54,22 +54,40 @@ class EventsController < ApplicationController
     redirect_to calendar_show_path
   end
 
-  private
-
-  def event_params
-    params.require(:event).permit(:name, :content, :date, :tag_list)
-  end
-
-  def find_event
-    @event = Event.find(params[:id])
-  end
-
-  def instantpublish?
-    if current_user.admin? == true || current_user.eventrole == "editor"
-      return true
+  def publishpanel
+    if allowed?
+    @unpublished = Event.where(published: false)
     else
-      return false
+      redirect_to root_path
     end
-  end
+    end
 
 end
+
+
+def allowed?
+  if current_user.admin == true || current_user.blogrole == "editor"
+    return true
+  else
+    return false
+  end
+end
+
+private
+
+def event_params
+  params.require(:event).permit(:name, :content, :date, :tag_list, :published)
+end
+
+def find_event
+  @event = Event.find(params[:id])
+end
+
+def instantpublish?
+  if current_user.admin? == true || current_user.eventrole == "editor"
+    return true
+  else
+    return false
+  end
+end
+

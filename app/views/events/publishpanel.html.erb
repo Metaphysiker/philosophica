@@ -1,0 +1,4 @@
+<h2>Unveröffentlichte Events</h2><br>
+<% @unpublished.each do |event| %>
+  <%= event.name %> | <%= link_to "Veröffentlichen", edit_event_path(event) %><br>
+<% end %>

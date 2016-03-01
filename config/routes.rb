@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'user/:username/' => 'users#show', as: 'profile'
   get 'blog/:url/' => 'blogs#show', as: 'philblog'
 
+  get 'events/publishpanel', to: 'events#publishpanel', as: "publishpanel"
   get 'static_pages/stackoverflow', to: 'static_pages#st', as: "stackoverflow"
   get 'static_pages/kalender', to: 'static_pages#kalender', as: 'kalender'
   get 'static_pages/forschung', to: 'static_pages#forschung', as: 'forschung'
