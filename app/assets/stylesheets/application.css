@@ -30,6 +30,11 @@ html, body{
     text-align: center;
 }
 
+.table-condensed td{
+    height: 75px;
+    border: 2px solid #0057ff;
+}
+
 .indextable1{
     align: center;
     display: inline-block;
