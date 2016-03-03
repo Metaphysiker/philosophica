@@ -30,5 +30,12 @@ class ExampleMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Event veröffentlichen')
 
   end
+
+  def event_unpublished(user)
+    @user = user
+
+    mail(to: @user.email, subject: 'Eventeintrag wird überprüft')
+
+  end
 end
 

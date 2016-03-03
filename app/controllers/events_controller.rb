@@ -33,6 +33,7 @@ class EventsController < ApplicationController
       @event.published = true
     else
       @event.published = false
+      ExampleMailer.event_unpublished(current_user).deliver
       @admins = User.where(admin: true)
       @admins.each do |admin|
         ExampleMailer.new_event_mail(admin).deliver
