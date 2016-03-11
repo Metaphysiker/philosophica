@@ -7,15 +7,36 @@
   <% end %>
   <br>
   Meine gewünschten Neuigkeiten mit den Tags:
+  <% i = 0 %>
   <% @tags.each do |tag| %>
       <%= tag %>
+      <% i = i + 1 %>
+       <% if i != @tags.length %>|
+      <% end %>
   <% end %>
   <br><br>
   Meine Informationen: <br>
   <% @infosall.each do |info| %>
       <%= link_to info.name, info_path(info) %>, Tags: <%=info.tag_list %><br>
   <% end %><br><br>
-  Meine Events: <br>
+
+  Kommende, für mich interessante Events: <br>
+  <% i = 0 %>
+  <% @comingdays.each do |day| %>
+      <% @comingevents.each do |event| %>
+          <% event.date_events.each do |data| %>
+              <% if data.date == day%>
+                  <%= link_to event.name, event_path(event) %> | Tags: <%= event.tag_list %><br>
+                  <%= data.date %><br><br>
+                  <% i = i + 1 %>
+              <% end %>
+              <% break if i == 5 %>
+          <% end %>
+          <% break if i == 5 %>
+      <% end %>
+      <% break if i == 5 %>
+  <% end %>
+
   <% @eventsall.each do |event| %>
       <%= link_to event.name, event_path(event) %>, Datum: <%= event.date %>, Tags: <%= event.tag_list %><br>
   <% end %><br><br>
@@ -23,4 +44,10 @@
         <%= link_to 'Profil bearbeiten', edit_user_registration_path %>
     <% end %>
   <br>
+</div>
+
+<br> Mein Kalender mit meinen gewünschten Informationen: <br>
+
+<div id="kalender1">
+  <%= render 'users/fullkalendar' %>
 </div>

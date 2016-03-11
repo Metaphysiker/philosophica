@@ -2,10 +2,16 @@
 
 <%= simple_form_for(@event) do |f| %>
     <%= f.input :name %>
-    <%= f.input :content %>
+    <div class="indextable1">
+      <div style="width: 600px">
+        <%= f.text_area :content, :class => "tinymce", :rows => 3 %>
+      </div>
+    </div>
     <%= f.input :tag_list, as: :check_boxes, collection: ['Logik', 'Ethik', 'Metaphysik'] %><br>
     <%= f.button :submit %>
 <% end %>
+
+<%= tinymce %>
 
 <script>
   $(document).ready(function(){

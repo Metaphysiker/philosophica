@@ -3,7 +3,7 @@
 <% end %>
 
 <%= @event.name %><br>
-<%= @event.content %><br>
+<%= simple_format(@event.content) %><br>
 <% @event.date_events.each do|date| %>
     <%= date.date %><br>
 <% end %>

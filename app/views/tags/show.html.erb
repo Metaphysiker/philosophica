@@ -1,9 +1,22 @@
 <%= @tag %><br><br>
 
 Kommende Events: <br>
-<% @events.each do |event| %>
-  <%= link_to event.name, event_path(event) %><br>
-<% end %><br>
+  <% i = 0 %>
+  <% @comingdays.each do |day| %>
+      <% @comingevents.each do |event| %>
+          <% event.date_events.each do |data| %>
+              <% if data.date == day%>
+                  <%= link_to event.name, event_path(event) %><br>
+                  <%= data.date %><br><br>
+                  <% i = i + 1 %>
+              <% end %>
+              <% break if i == 5 %>
+          <% end %>
+          <% break if i == 5 %>
+      <% end %>
+      <% break if i == 5 %>
+  <% end %>
+
 
 Informationen:<br>
 <% @infos.each do |info| %>

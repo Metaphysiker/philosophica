@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'events/publishpanel', to: 'events#publishpanel', as: "publishpanel"
   get 'static_pages/stackoverflow', to: 'static_pages#st', as: "stackoverflow"
   get 'static_pages/kalender', to: 'static_pages#kalender', as: 'kalender'
+  get 'user/:username/', to: 'users#show', as: 'userkalender'
   get 'static_pages/forschung', to: 'static_pages#forschung', as: 'forschung'
   get 'static_pages/ausbildung', to: 'static_pages#ausbildung', as: 'ausbildung'
   get 'static_pages/themen', to: 'static_pages#themen', as: 'themen'

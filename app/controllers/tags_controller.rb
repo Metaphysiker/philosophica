@@ -7,7 +7,11 @@ class TagsController < ApplicationController
 
   def show
     @tag =  ActsAsTaggableOn::Tag.find(params[:id])
-    @events = Event.tagged_with(@tag.name)
     @infos = Info.tagged_with(@tag.name)
+
+    @date = Date.today()
+    @dateplusyear = @date + 2.years
+    @comingdays = (@date..@dateplusyear)
+    @comingevents = Event.where(published: true).tagged_with(@tag.name)
   end
 end
