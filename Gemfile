@@ -4,6 +4,7 @@ ruby File.read('.ruby-version').strip
 
 gem 'devise'
 gem 'figaro'
+gem 'pg_search'
 
 gem 'bootstrap3-datetimepicker-rails'
 gem 'momentjs-rails'
