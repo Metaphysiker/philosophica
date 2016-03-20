@@ -13,6 +13,13 @@
 <div style="text-align: center">
   <%= image_tag("mensch.jpg", width:"50%") %>
 </div>
+<div style="text-align: center">
+  <%= form_tag("/search/:search_input", method: "get") do %>
+      <%= label_tag(:search_input, "Suche:") %>
+      <%= text_field_tag(:search_input) %>
+      <%= submit_tag("Search") %>
+  <% end %>
+</div><br>
 
 <div class="zweitesblau">
   <div class="media1">
@@ -61,4 +68,5 @@
     </ul>
   </div>
 </div>
+<br>
 <br>

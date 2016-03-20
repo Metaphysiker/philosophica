@@ -1,0 +1,10 @@
+Suchergebnisse:
+<br>
+Events: <br>
+<% @events.each do |event| %>
+    <div class="blogpostentrys">
+    <%= event.name %><br>
+    <%= simple_format(event.content) %><br>
+      </div>
+<% end %>
+
