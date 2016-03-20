@@ -1,5 +1,35 @@
 Suchergebnisse:
 <br>
+
+<table style="width:90%">
+  <tr>
+    <td>Events</td>
+    <td>Informationen</td>
+    <td>Blogs</td>
+  </tr>
+  <tr>
+    <td>
+      <% @events.each do |event| %>
+          <div class="blogpostentrys">
+          <%= link_to event.name, event_path(event) %><br>
+          <%= simple_format highlight(event.content, @word) %>
+          </div>
+      <% end %>
+    </td>
+    <td>
+      <% @infos.each do |info| %>
+          <div class="blogpostentrys">
+            <%= link_to info.name, event_path(info) %><br>
+            <%= simple_format highlight(info.content,@word)  %>
+          </div>
+      <% end %>
+    </td>
+    <td></td>
+  </tr>
+</table>
+
+
+
 Events: <br>
 <% @events.each do |event| %>
     <div class="blogpostentrys">
@@ -8,3 +38,6 @@ Events: <br>
       </div>
 <% end %>
 
+
+
+<script src="assets/creative.js"></script>
