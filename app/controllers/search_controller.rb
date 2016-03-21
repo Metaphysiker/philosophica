@@ -3,18 +3,22 @@ class SearchController < ApplicationController
 
     #@pg_search_documents = PgSearch.multisearch(params[:search_input])
     eventsresult = []
-    infosresult = []
     #eventsresult = Event.where("name LIKE ? OR content LIKE ?", "%#{params[:search_input]}%", "%#{params[:search_input]}%")
-    @word = params[:search_input].split
-    @word.each do |word|
-      eventsresult = eventsresult + Event.where("name ILIKE ? OR content ILIKE ?", "%#{word}%", "%#{word}%")
-      infosresult = Info.where("name ILIKE ? OR content ILIKE ?", "%#{word}%", "%#{word}%")
-    end
+    @word = params[:search_input]
+    eventsresult = eventsresult + Event.where("name ILIKE ? OR content ILIKE ?", "%#{@word}%", "%#{@word}%")
+
+
+
+    @word = @word.split
+    @word = @word.map {|val| "%#{val}%" }
+    eventsresult = eventsresult + Event.where("name ILIKE ALL ( array[?] ) OR content ILIKE ALL ( array[?] )", @word, @word)
+      #eventsresult = eventsresult + Event.where("name ILIKE ? OR content ILIKE ?", "%#{@word}%", "%#{@word}%")
+      #infosresult = Info.where("name ILIKE ? OR content ILIKE ?", "%#{word}%", "%#{word}%")
 
     eventsresult.uniq!
-    infosresult.uniq!
 
     @events = eventsresult
-    @infos = infosresult
+    @infos = Info.last(2)
+    @word = params[:search_input].split
   end
 end
