@@ -10,10 +10,12 @@ Suchergebnisse:
   <tr>
     <td>
       <% @events.each do |event| %>
-          <div class="blogpostentrys">
-          <%= link_to event.name, event_path(event) %><br>
-          <%= simple_format highlight(event.content, @word) %>
-          </div>
+          <%= link_to event_path(event), class: "columnheadermess"  do %>
+              <div class="blogpostentrys">
+                <h3><%= highlight(event.name, @word) %></h3>
+                <%= highlight(event.content, @word) %>
+              </div>
+          <% end %>
       <% end %>
     </td>
     <td>

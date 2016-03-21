@@ -12,6 +12,7 @@ class SearchController < ApplicationController
     @word = @word.split
     @word = @word.map {|val| "%#{val}%" }
     eventsresult = eventsresult + Event.where("name ILIKE ALL ( array[?] ) OR content ILIKE ALL ( array[?] )", @word, @word)
+    #eventsresult = eventsresult + Event.where("name ILIKE ANY ( array[?] ) OR content ILIKE ANY ( array[?] )", @word, @word)
       #eventsresult = eventsresult + Event.where("name ILIKE ? OR content ILIKE ?", "%#{@word}%", "%#{@word}%")
       #infosresult = Info.where("name ILIKE ? OR content ILIKE ?", "%#{word}%", "%#{word}%")
 
@@ -19,6 +20,7 @@ class SearchController < ApplicationController
 
     @events = eventsresult
     @infos = Info.last(2)
-    @word = params[:search_input].split
+
+    @word = params[:search_input].split #Wichtig für Highlighter, muss am Ende sein
   end
 end
