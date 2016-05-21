@@ -16,5 +16,5 @@ tmp
 logs
 
 
-/secrets.yml
-/database.yml
+secrets.yml
+database.yml

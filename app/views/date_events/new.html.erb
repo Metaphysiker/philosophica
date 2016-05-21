@@ -4,7 +4,7 @@
 <br>
 
 <%= simple_form_for([@event, @dateevent]) do |f| %>
-    <%= hidden_field_tag(:date, @datelist) %>
+    <%= hidden_field_tag(:date) %>
     <%= f.input :date, :as => :hidden, :input_html => { :value => "placeholder" } %>
     <%= f.button :submit %>
 <% end %>
