@@ -16,13 +16,9 @@ gem 'rails', '4.2.5'
 gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
 gem 'delayed_job_active_record'
 gem 'tinymce-rails'
+gem 'pg', '~> 0.15'
 
-
-group :development do
-  gem 'pg', '~> 0.15'
-end
 group :production do
-  gem 'pg', '~> 0.15'
   gem 'rails_12factor'
 end
 # Use SCSS for stylesheets
@@ -34,11 +30,12 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'acts-as-taggable-on'
-gem 'rake'
+gem 'rake', '~> 11.1.2'
 gem 'simple_form'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'gon'
+gem 'sprockets'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
