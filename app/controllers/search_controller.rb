@@ -8,9 +8,7 @@ class SearchController < ApplicationController
     Rails.logger.debug("params2:" + inputword.inspect)
     eventsresult = Event.where("name ILIKE ? OR content ILIKE ?", "%#{inputword}%", "%#{inputword}%")
 
-    Rails.logger.debug("inputword: " +inputword)
     inputword = inputword.split
-    Rails.logger.debug(inputword.inspect)
 
     eventsresult = findwithamount(inputword, inputword.length, eventsresult)
 
@@ -33,6 +31,7 @@ class SearchController < ApplicationController
     @infos = Info.last(2)
 
     @word = params[:search_input].split #Wichtig für Highlighter, muss am Ende sein
+    Rails.logger.debug(@word.inspect)
   end
 end
 
@@ -45,7 +44,6 @@ def findwithamount(array, number, list)
     localresult= Event.where("name ILIKE ? OR content ILIKE ?","%#{word}%", "%#{word}%")
     midresult = midresult + localresult #enthält alle Events mit mindestens einem Wort
   end
-  Rails.logger.debug("midresult:" + midresult.inspect)
   midresult.each do |mid|
     i = 0
     midresult.each do |mid2|
@@ -57,8 +55,6 @@ def findwithamount(array, number, list)
       highresult.push(mid)
     end
   end
-
-
     list = list + highresult
     return list
 end

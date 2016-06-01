@@ -14,6 +14,14 @@ Suchergebnisse:
               <div class="blogpostentrys">
                 <h3><%= highlight(event.name, @word) %></h3>
                 <%= highlight(event.content, @word) %>
+                <br>
+                <% if !(wordmissing?(event, @word).blank?) %>
+                    <br>
+                    Es fehlt:
+                <% wordmissing?(event, @word).each do |word| %>
+                    <%= word %>
+                <% end %>
+                <% end %>
               </div>
           <% end %>
       <% end %>
