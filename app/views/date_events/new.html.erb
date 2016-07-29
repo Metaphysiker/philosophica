@@ -1,13 +1,14 @@
-<h2>Neuer Event</h2><br>
-<div class="jesus"></div><br><br>
-<input type="text" class='datepicker' >
+<div style="text-align: center;"><h2>Neuer Event</h2>
+  <%= simple_form_for([@event, @dateevent]) do |f| %>
+      <%= hidden_field_tag(:date) %>
+      <%= f.input :date, :as => :hidden, :input_html => { :value => "placeholder" } %>
+      <%= f.button :submit,"Möglichkeit erstellen" %>
+  <% end %><br>
+<input type="text" class='datepicker'>
 <br>
+<div class="moses"></div>
+</div>
 
-<%= simple_form_for([@event, @dateevent]) do |f| %>
-    <%= hidden_field_tag(:date) %>
-    <%= f.input :date, :as => :hidden, :input_html => { :value => "placeholder" } %>
-    <%= f.button :submit %>
-<% end %>
 
   <script>
 
@@ -17,18 +18,23 @@
         document.getElementById('date').value = datelist;
       });
 
-      $input = $('.datepicker');
-      $input.datepicker({
+      $('.moses').datepicker({
         multidate: true,
+        language: "de",
         format: 'yyyy-mm-dd',
         todayHighlight: true,
-        container: ".jesus",
         title: "An welchen Tagen findet der Event statt?",
         weekStart: 1
+      }).on('changeDate', function(e){
+        $('.datepicker').val(
+            $('.moses').datepicker('getFormattedDate') // get the formatted date from the datepicker (using the format you instantiated it with)
+        );
       });
-      $input.data('datepicker').hide = function () {};
-      $input.datepicker('show');
+
     });
 </script>
+
+
+
 
 

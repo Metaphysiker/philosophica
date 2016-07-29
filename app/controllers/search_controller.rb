@@ -5,20 +5,9 @@ class SearchController < ApplicationController
 
     #eventsresult = Event.where("name LIKE ? OR content LIKE ?", "%#{params[:search_input]}%", "%#{params[:search_input]}%")
     inputword = params[:search_input]
-    Rails.logger.debug("params2:" + inputword.inspect)
-    eventsresult = Event.where("name ILIKE ? OR content ILIKE ?", "%#{inputword}%", "%#{inputword}%")
 
-    inputword = inputword.split
 
-    eventsresult = findwithamount(inputword, inputword.length, eventsresult)
 
-    if inputword.length >=2
-      eventsresult = findwithamount(inputword, inputword.length-1, eventsresult)
-    end
-
-    if inputword.length >=1
-      eventsresult = findwithamount(inputword, inputword.length-2, eventsresult)
-    end
     #@word = @word.map {|val| "%#{val}%" }
 
 
@@ -26,16 +15,32 @@ class SearchController < ApplicationController
     #eventsresult = eventsresult + Event.where("name ILIKE ANY ( array[?] ) OR content ILIKE ANY ( array[?] )", @word, @word)
       #eventsresult = eventsresult + Event.where("name ILIKE ? OR content ILIKE ?", "%#{@word}%", "%#{@word}%")
       #infosresult = Info.where("name ILIKE ? OR content ILIKE ?", "%#{word}%", "%#{word}%")
-    eventsresult.uniq!
-    @events = eventsresult
-    @infos = Info.last(2)
+
+    @events = searchin(Event,inputword)
+    @infos = searchin(Info, inputword)
 
     @word = params[:search_input].split #Wichtig für Highlighter, muss am Ende sein
-    Rails.logger.debug(@word.inspect)
   end
 end
 
 private
+
+def searchin (klass, input)
+  classresult = klass.where("name ILIKE ? OR content ILIKE ?", "%#{input}%", "%#{input}%")
+  input = input.split
+
+  classresult = findwithamount(input, input.length, classresult)
+
+  if input.length >=2
+    classresult = findwithamount(input, input.length-1, classresult)
+  end
+
+  if input.length >=1
+    classresult = findwithamount(input, input.length-2, classresult)
+  end
+  classresult.uniq!
+  return classresult
+end
 
 def findwithamount(array, number, list)
   midresult = []

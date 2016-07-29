@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-ruby File.read('.ruby-version').strip
-
 gem 'devise'
 gem 'figaro'
 gem 'pg_search'

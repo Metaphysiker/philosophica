@@ -24,6 +24,12 @@ html, body{
     align: center;
     display: inline-block;
 }
+.moses{
+    align: center;
+    display: inline-block;
+    padding:10px;
+    margin-left: -280px;
+}
 
 /* HOVER STYLES */
 div.pop-up {
