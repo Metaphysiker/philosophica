@@ -1,14 +1,15 @@
+<div style="text-align: left; padding-left: 30%;">
+
 <h2>Sign up</h2>
 
-<%= javascript_tag "name = #{@names.to_json.html_safe};" %>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
-    <div class="counting" ><%= f.input :username, label: "Username      (will be pubicly displayed)", required: true, autofocus: true %><span class="count"></span></div><br>
-      <div class="countingmail" ><%= f.input :email, label: "eMail       (will NOT be publicly displayed)", required: true %><span class="countmail"></span></div><br>
-      <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+    <div class="counting" ><%= f.input :username, label: "Username      (will be publicly displayed)", required: true, autofocus: true, wrapper_html: { class: 'inlineblock' } %><span class="count" style="color: white;"></span></div>
+      <div class="countingmail" ><%= f.input :email, label: "eMail       (will NOT be publicly displayed)", required: true, wrapper_html: { class: 'inlineblock' } %><span class="countmail" style="color: white;"></span></div>
+      <%= f.input :password, required: true, hint: (" #{@minimum_password_length} characters minimum" if @minimum_password_length) %>
       <%= f.input :password_confirmation, required: true %>
       <%= f.input :tag_list, as: :check_boxes, collection: ['Logik', 'Ethik', 'Metaphysik'] %>
     </div>
@@ -20,23 +21,47 @@
 
 <%= render "devise/shared/links" %>
 
+</div>
+
 <script>
 
   $(document).ready(function(){
 
     var choosingbar = function( event ){
 
-      var greeting = "username is free";
-      var names = <%=raw @names.to_json %>;
-      if ($.inArray($(event.target).val(), names) > -1 ){
-        greeting = "username is already taken";
-        $(".count").css("background-color","red");
-        $(event.target).parents(".counting").children(".count").text(greeting);
-      } else{
-        greeting = "username is free, take it!";
-        $(".count").css("background-color","green");
-        $(event.target).parents(".counting").children(".count").text(greeting);
-      }
+      var checkname = false;
+
+      $.ajax({
+        url: "<%= fileContent_path %>", // Route to the Script Controller method
+        type: "GET",
+        dataType: "json",
+        data: { file_name: $(event.target).val() }, // This goes to Controller in params hash, i.e. params[:file_name]
+        complete: function() {},
+        success: function(data) {
+          // Do something with the response here
+          checkname = data.file_content; // Show the file contents in our editor.
+                       // editor is defined somewhere above
+                                             // 'file_content' is the key we use to respond
+                                             // in the controller function below
+
+          var greeting = "username is free";
+          if (checkname == true){
+            greeting = "username is already taken!";
+            $(".count").css("background-color","red");
+            $(event.target).parents(".counting").children(".count").text(greeting);
+          } else{
+            greeting = "username is free, take it!";
+            $(".count").css("background-color","green");
+            $(event.target).parents(".counting").children(".count").text(greeting);
+          }
+
+        },
+        error: function() {
+          alert("Ajax error!")
+        }
+      });
+
+
 
     };
 

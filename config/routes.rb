@@ -7,11 +7,22 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+  resources :scripts do
+
+    member do
+      get 'fileContent'
+    end
+  end
+
+  get 'user/' => 'users#fileContent', as: 'fileContent'
+
   # You can have the root of your site routed with "root"
   root 'static_pages#index'
   get 'adminpanel' => 'users#adminpanel', as: 'adminpanel'
   get 'user/:username/' => 'users#show', as: 'profile'
   get 'blog/:url/' => 'blogs#show', as: 'philblog'
+
+  post '/confirm/:name' => 'users#confirm', as: 'confirm'
 
   get 'search/:query' => 'search#search', as: 'search'
 

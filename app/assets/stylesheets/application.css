@@ -20,6 +20,27 @@ html, body{
     font-family: "Arial";
 }
 
+.inlineblock{
+    display: inline-block;
+}
+
+.count{
+    padding:7px;
+    border-radius: 15px;
+    display: inline-block;
+    margin: 5px;
+}
+
+.counting{
+    display: inline-block;
+}
+
+.countmail{
+    padding:7px;
+    border-radius: 15px;
+    display: inline-block;
+}
+
 .jesus{
     align: center;
     display: inline-block;

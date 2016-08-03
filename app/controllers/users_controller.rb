@@ -58,6 +58,26 @@ respond_to :html, :js
     @users = User.all
   end
 
+  def checkname
+    name = params[:name]
+    return User.exists?(:username => name)
+  end
+
+def fileContent
+
+  name = params[:file_name]
+
+  boolean = User.exists?(:username => name)
+
+  logger.debug boolean
+
+  if request.xhr?
+    render :json => {
+        :file_content => boolean
+    }
+  end
+end
+
 
 
 end
