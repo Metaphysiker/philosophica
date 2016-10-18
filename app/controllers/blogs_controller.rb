@@ -4,9 +4,6 @@ class BlogsController < ApplicationController
 
   def show
     @blog = Blog.find_by_url(params[:url])
-    if !currentuserallowed?(current_user)
-      redirect_to root_path
-    end
   end
 
   def edit
